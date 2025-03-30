@@ -1,6 +1,5 @@
-
-import app from "./server";
+import app from './server'
 
 export default {
-  fetch: app.fetch
-} satisfies ExportedHandler<Env>;
+	fetch: app.fetch
+} satisfies ExportedHandler<Env>

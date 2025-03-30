@@ -7,9 +7,7 @@
 		"sourceMap": true,
 		"esModuleInterop": true,
 		"inlineSourceMap": false,
-		"lib": [
-			"esnext"
-		],
+		"lib": ["esnext"],
 		"listEmittedFiles": false,
 		"listFiles": false,
 		"moduleResolution": "node",
@@ -23,16 +21,8 @@
 		"outDir": "",
 		"target": "esnext",
 		"module": "esnext",
-		"types": [
-			"@cloudflare/workers-types"
-		]
+		"types": ["@cloudflare/workers-types"]
 	},
-	"exclude": [
-		"node_modules",
-		"dist",
-		"tests"
-	],
-	"include": [
-		"**/*.ts"
-	]
+	"exclude": ["node_modules", "dist", "tests"],
+	"include": ["**/*.ts"]
 }
