@@ -1,6 +1,6 @@
 {
   "name": "cloudflare-starter",
-  "module": "worker.ts",
+  "module": "src/index.ts",
   "type": "module",
   "scripts": {
     "deploy": "wrangler deploy",

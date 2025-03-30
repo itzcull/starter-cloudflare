@@ -1,17 +1,21 @@
 {
-  "$schema": "https://github.com/cloudflare/workers-sdk/files/12887590/wrangler.schema.json",
-  "name": "cloudflare-start",
-  "main": "worker.ts",
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cloudflare-starter",
+  "main": "src/index.ts",
   "compatibility_date": "2025-03-21",
+  "compatibility_flags": [
+    "nodejs_als",
+    "nodejs_compat"
+  ],
+  "keep_vars": false,
   "workers_dev": true,
-  "route": {
-    "pattern": "mcp.example.org/*",
-    "zone_name": "example.org"
+  "preview_urls": false,
+  "logpush": true,
+  "observability": {
+    "enabled": true
   },
-  "env": {
-    "staging": {
-      "name": "cloudflare-starter-staging",
-      "workers_dev": true
-    }
+  "route": {
+    "pattern": "example.com/*",
+    "zone_name": "example.com"
   }
 }

@@ -1,7 +1,6 @@
-import { Hono } from "hono";
 
-const app = new Hono();
+import app from "./server";
 
-app.get("/", (c) => c.text("Hello World"));
-
-export default app;
+export default {
+  fetch: app.fetch
+} satisfies ExportedHandler<Env>;
