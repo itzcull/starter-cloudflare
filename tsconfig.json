@@ -7,7 +7,9 @@
 		"sourceMap": true,
 		"esModuleInterop": true,
 		"inlineSourceMap": false,
-		"lib": ["esnext"],
+		"lib": [
+			"esnext"
+		],
 		"listEmittedFiles": false,
 		"listFiles": false,
 		"moduleResolution": "node",
@@ -25,6 +27,12 @@
 			"@cloudflare/workers-types"
 		]
 	},
-	"exclude": ["node_modules", "dist", "tests"],
-	"include": ["**/*.ts"]
+	"exclude": [
+		"node_modules",
+		"dist",
+		"tests"
+	],
+	"include": [
+		"**/*.ts"
+	]
 }

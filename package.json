@@ -1,25 +1,25 @@
 {
-  "name": "cloudflare-starter",
-  "module": "src/index.ts",
-  "type": "module",
-  "scripts": {
-    "deploy": "wrangler deploy",
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "typegen": "wrangler types"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "bun-types": "latest",
-    "vite": "^6.2.3",
-    "wrangler": "^4.5.1",
-    "@cloudflare/vite-plugin": "^0.1.18"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  },
-  "dependencies": {
-    "hono": "^4.7.5"
-  }
+	"name": "cloudflare-starter",
+	"module": "src/index.ts",
+	"type": "module",
+	"scripts": {
+		"deploy": "wrangler deploy",
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"typegen": "wrangler types"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"bun-types": "latest",
+		"vite": "^6.2.3",
+		"wrangler": "^4.5.1",
+		"@cloudflare/vite-plugin": "^0.1.18"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	},
+	"dependencies": {
+		"hono": "^4.7.5"
+	}
 }

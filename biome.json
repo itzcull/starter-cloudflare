@@ -2,13 +2,13 @@
 	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
 	"vcs": {
 		"clientKind": "git",
-		"defaultBranch": "main",
+		"defaultBranch": "master",
 		"enabled": true,
 		"useIgnoreFile": true
 	},
 	"files": {
-		"include": ["**/*.{ts,tsx,js,jsx,json}"],
-		"ignoreUnknown": true
+		"include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.json"],
+		"ignore": ["worker-configuration.d.ts"]
 	},
 	"formatter": {
 		"enabled": true,
@@ -21,20 +21,12 @@
 		"lineEnding": "lf",
 		"useEditorconfig": false
 	},
-	"graphql": {
-		"formatter": {
-			"enabled": false
-		},
-		"linter": {
-			"enabled": false
-		}
-	},
 	"css": {
 		"formatter": {
-			"enabled": false
+			"enabled": true
 		},
 		"linter": {
-			"enabled": false
+			"enabled": true
 		}
 	},
 	"json": {
@@ -63,7 +55,7 @@
 			"indentStyle": "tab",
 			"lineWidth": 120,
 			"lineEnding": "lf",
-			"arrowParentheses": "asNeeded",
+			"arrowParentheses": "always",
 			"bracketSameLine": true,
 			"jsxQuoteStyle": "double",
 			"quoteProperties": "asNeeded",
