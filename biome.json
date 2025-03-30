@@ -1,0 +1,114 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"vcs": {
+		"clientKind": "git",
+		"defaultBranch": "main",
+		"enabled": true,
+		"useIgnoreFile": true
+	},
+	"files": {
+		"include": ["**/*.{ts,tsx,js,jsx,json}"],
+		"ignoreUnknown": true
+	},
+	"formatter": {
+		"enabled": true,
+		"attributePosition": "multiline",
+		"bracketSpacing": true,
+		"formatWithErrors": false,
+		"indentWidth": 2,
+		"indentStyle": "tab",
+		"lineWidth": 120,
+		"lineEnding": "lf",
+		"useEditorconfig": false
+	},
+	"graphql": {
+		"formatter": {
+			"enabled": false
+		},
+		"linter": {
+			"enabled": false
+		}
+	},
+	"css": {
+		"formatter": {
+			"enabled": false
+		},
+		"linter": {
+			"enabled": false
+		}
+	},
+	"json": {
+		"formatter": {
+			"enabled": true,
+			"indentWidth": 2,
+			"indentStyle": "tab",
+			"lineWidth": 120,
+			"lineEnding": "lf",
+			"trailingCommas": "none"
+		},
+		"linter": {
+			"enabled": true
+		},
+		"parser": {
+			"allowTrailingCommas": true
+		}
+	},
+	"javascript": {
+		"jsxRuntime": "transparent",
+		"formatter": {
+			"enabled": true,
+			"attributePosition": "multiline",
+			"bracketSpacing": true,
+			"indentWidth": 2,
+			"indentStyle": "tab",
+			"lineWidth": 120,
+			"lineEnding": "lf",
+			"arrowParentheses": "asNeeded",
+			"bracketSameLine": true,
+			"jsxQuoteStyle": "double",
+			"quoteProperties": "asNeeded",
+			"quoteStyle": "single",
+			"semicolons": "asNeeded",
+			"trailingCommas": "none"
+		},
+		"organizeImports": {},
+		"linter": {
+			"enabled": true
+		},
+		"parser": {
+			"unsafeParameterDecoratorsEnabled": false
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"a11y": {
+				"recommended": true
+			},
+			"complexity": {
+				"recommended": true
+			},
+			"correctness": {
+				"recommended": true
+			},
+			"nursery": {
+				"recommended": true
+			},
+			"performance": {
+				"recommended": true
+			},
+			"security": {
+				"recommended": true
+			},
+			"style": {
+				"recommended": true
+			},
+			"suspicious": {
+				"recommended": true
+			}
+		}
+	},
+	"organizeImports": {
+		"enabled": true
+	}
+}
