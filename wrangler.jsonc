@@ -1,21 +1,18 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "cloudflare-starter",
-  "main": "src/index.ts",
-  "compatibility_date": "2025-03-21",
-  "compatibility_flags": [
-    "nodejs_als",
-    "nodejs_compat"
-  ],
-  "keep_vars": false,
-  "workers_dev": true,
-  "preview_urls": false,
-  "logpush": true,
-  "observability": {
-    "enabled": true
-  },
-  "route": {
-    "pattern": "example.com/*",
-    "zone_name": "example.com"
-  }
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "cloudflare-starter",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-03-21",
+	"compatibility_flags": ["nodejs_als", "nodejs_compat"],
+	"keep_vars": false,
+	"workers_dev": true,
+	"preview_urls": false,
+	"logpush": true,
+	"observability": {
+		"enabled": true
+	},
+	"route": {
+		"pattern": "example.com/*",
+		"zone_name": "example.com"
+	}
 }
