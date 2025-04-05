@@ -1,9 +1,9 @@
 import { Hono } from 'hono'
 
-const app = new Hono()
+const app = new Hono<Env>()
 
 app.get('/', async (c) => {
-	c.text('Hello World')
+	return c.text('Hello World')
 })
 
 export default app

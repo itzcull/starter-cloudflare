@@ -20,9 +20,8 @@
 		"traceResolution": false,
 		"outDir": "",
 		"target": "esnext",
-		"module": "esnext",
-		"types": ["@cloudflare/workers-types"]
+		"module": "esnext"
 	},
 	"exclude": ["node_modules", "dist", "tests"],
-	"include": ["**/*.ts"]
+	"include": ["**/*.ts", "worker-configuration.d.ts"]
 }

@@ -3,7 +3,10 @@
 	"name": "cloudflare-starter",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-03-21",
-	"compatibility_flags": ["nodejs_als", "nodejs_compat"],
+	"compatibility_flags": [
+		"nodejs_als",
+		"nodejs_compat"
+	],
 	"keep_vars": false,
 	"workers_dev": true,
 	"preview_urls": false,
