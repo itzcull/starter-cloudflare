@@ -22,7 +22,7 @@
 		{
 			"binding": "DB",
 			"database_name": "cloudflare-starter-db",
-			"migrations_dir": "drizzle/migrations"
+			"migrations_dir": "migrations"
 		}
 	]
 }
