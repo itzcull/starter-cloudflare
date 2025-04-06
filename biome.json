@@ -9,17 +9,6 @@
 	"files": {
 		"ignore": ["worker-configuration.d.ts"]
 	},
-	"formatter": {
-		"enabled": true,
-		"attributePosition": "multiline",
-		"bracketSpacing": true,
-		"formatWithErrors": false,
-		"indentWidth": 2,
-		"indentStyle": "tab",
-		"lineWidth": 120,
-		"lineEnding": "lf",
-		"useEditorconfig": false
-	},
 	"css": {
 		"formatter": {
 			"enabled": true
@@ -62,7 +51,6 @@
 			"semicolons": "asNeeded",
 			"trailingCommas": "none"
 		},
-		"organizeImports": {},
 		"linter": {
 			"enabled": true
 		},

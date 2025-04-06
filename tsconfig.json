@@ -20,7 +20,11 @@
 		"traceResolution": false,
 		"outDir": "",
 		"target": "esnext",
-		"module": "esnext"
+		"module": "esnext",
+		"paths": {
+			"@db/*": ["src/db/*"],
+			"@server/*": ["src/server/*"]
+		}
 	},
 	"exclude": ["node_modules", "dist", "tests"],
 	"include": ["**/*.ts", "worker-configuration.d.ts"]
