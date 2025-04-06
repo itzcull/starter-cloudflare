@@ -3,7 +3,10 @@
 	"name": "cloudflare-starter",
 	"main": "src/worker.ts",
 	"compatibility_date": "2025-03-21",
-	"compatibility_flags": ["nodejs_als", "nodejs_compat"],
+	"compatibility_flags": [
+		"nodejs_als",
+		"nodejs_compat"
+	],
 	"keep_vars": false,
 	"workers_dev": true,
 	"preview_urls": false,
@@ -14,5 +17,12 @@
 	"route": {
 		"pattern": "example.com/*",
 		"zone_name": "example.com"
-	}
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "cloudflare-starter-db",
+			"migrations_dir": "drizzle/migrations"
+		}
+	]
 }

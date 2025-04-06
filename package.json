@@ -1,28 +1,30 @@
 {
-	"name": "cloudflare-starter",
-	"module": "src/index.ts",
-	"type": "module",
-	"scripts": {
-		"deploy": "wrangler deploy",
-		"dev": "vite",
-		"build": "vite build",
-		"preview": "vite preview",
-		"typegen": "wrangler types",
-		"lint": "biome check --write",
-		"format": "biome format --write",
-		"ci": "biome check --diagnostic-level=error"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
-		"bun-types": "latest",
-		"vite": "^6.2.3",
-		"wrangler": "^4.5.1",
-		"@cloudflare/vite-plugin": "^0.1.18"
-	},
-	"peerDependencies": {
-		"typescript": "^5.0.0"
-	},
-	"dependencies": {
-		"hono": "^4.7.5"
-	}
+  "name": "cloudflare-starter",
+  "module": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typegen": "wrangler types",
+    "lint": "biome check --write",
+    "format": "biome format --write",
+    "ci": "biome check --diagnostic-level=error"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@cloudflare/vite-plugin": "^0.1.18",
+    "bun-types": "latest",
+    "drizzle-kit": "^0.30.6",
+    "vite": "^6.2.3",
+    "wrangler": "^4.5.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.41.0",
+    "hono": "^4.7.5"
+  }
 }
