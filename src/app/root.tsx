@@ -1,5 +1,5 @@
 import React, { type PropsWithChildren } from 'react'
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
+import { Links, Meta, Scripts, ScrollRestoration } from 'react-router'
 
 import './styles.css'
 
@@ -17,13 +17,7 @@ export function Layout({ children }: PropsWithChildren) {
 			</head>
 			<body>
 				{children}
-
-				{/* Manages scroll position for client-side transitions */}
-				{/* If you use a nonce-based content security policy for scripts, you must provide the `nonce` prop. Otherwise, omit the nonce prop as shown here. */}
 				<ScrollRestoration />
-
-				{/* Script tags go here */}
-				{/* If you use a nonce-based content security policy for scripts, you must provide the `nonce` prop. Otherwise, omit the nonce prop as shown here. */}
 				<Scripts />
 			</body>
 		</html>
@@ -31,5 +25,5 @@ export function Layout({ children }: PropsWithChildren) {
 }
 
 export default function App() {
-	return <>fdlskjfsd</>
+	return <main className="bg-red-500 w-full h-20">fdlskjfsd</main>
 }
