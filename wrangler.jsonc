@@ -17,12 +17,5 @@
 	"route": {
 		"pattern": "example.com/*",
 		"zone_name": "example.com"
-	},
-	"d1_databases": [
-		{
-			"binding": "DB",
-			"database_name": "cloudflare-starter-db",
-			"migrations_dir": "migrations"
-		}
-	]
+	}
 }
