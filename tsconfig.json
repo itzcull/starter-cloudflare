@@ -7,9 +7,7 @@
 		"sourceMap": true,
 		"esModuleInterop": true,
 		"inlineSourceMap": false,
-		"lib": [
-			"esnext"
-		],
+		"lib": ["esnext"],
 		"listEmittedFiles": false,
 		"listFiles": false,
 		"moduleResolution": "bundler",
@@ -25,24 +23,11 @@
 		"module": "esnext",
 		"jsx": "react-jsx",
 		"paths": {
-			"@db/*": [
-				"src/db/*"
-			],
-			"@server/*": [
-				"src/server/*"
-			]
+			"@db/*": ["src/db/*"],
+			"@server/*": ["src/server/*"]
 		},
-		"types": [
-			"vite/client"
-		]
+		"types": ["vite/client"]
 	},
-	"exclude": [
-		"node_modules",
-		"dist",
-		"tests"
-	],
-	"include": [
-		"**/*.ts",
-		"worker-configuration.d.ts"
-	]
+	"exclude": ["node_modules", "dist", "tests"],
+	"include": ["**/*.ts", "worker-configuration.d.ts"]
 }

@@ -11,10 +11,10 @@
 	},
 	"css": {
 		"formatter": {
-			"enabled": true
+			"enabled": false
 		},
 		"linter": {
-			"enabled": true
+			"enabled": false
 		}
 	},
 	"json": {

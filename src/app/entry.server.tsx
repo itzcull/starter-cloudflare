@@ -1,6 +1,5 @@
 import * as isbotModule from 'isbot'
 import React from 'react'
-// Look inside env.d.ts for the following line & github discussion link:
 import { renderToReadableStream } from 'react-dom/server.edge'
 import type { ActionFunctionArgs, AppLoadContext, EntryContext, LoaderFunctionArgs } from 'react-router'
 import { ServerRouter, isRouteErrorResponse } from 'react-router'
