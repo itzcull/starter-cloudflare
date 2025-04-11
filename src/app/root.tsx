@@ -1,8 +1,9 @@
 import React, { type PropsWithChildren } from 'react'
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
 import './styles.css'
+import 'reshaped/themes/reshaped/theme.css'
 
-import { Reshaped, View } from 'reshaped'
+import { Reshaped } from 'reshaped'
 
 export function Layout({ children }: PropsWithChildren) {
 	return (

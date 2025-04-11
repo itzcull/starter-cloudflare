@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Text } from 'reshaped'
 
-export default function route() {
+export default function Index() {
 	return (
 		<Container
 			width="full"
@@ -9,7 +9,7 @@ export default function route() {
 			align="center"
 			justify="center"
 		>
-			<Text>Hello World</Text>
+			<Text variant="title-1">Hello World</Text>
 		</Container>
 	)
 }
