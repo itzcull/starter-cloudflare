@@ -1,12 +1,8 @@
 import React, { type PropsWithChildren } from 'react'
-import { Links, Meta, Scripts, ScrollRestoration } from 'react-router'
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
+import './styles.css'
 
 import { Reshaped, View } from 'reshaped'
-import cssLink from './styles.css?url'
-
-export function links() {
-	return [{ rel: 'stylesheet', href: cssLink }]
-}
 
 export function Layout({ children }: PropsWithChildren) {
 	return (
@@ -21,7 +17,7 @@ export function Layout({ children }: PropsWithChildren) {
 				<Links />
 			</head>
 			<body>
-				<Reshaped>{children}</Reshaped>
+				<Reshaped theme="reshaped">{children}</Reshaped>
 				<ScrollRestoration />
 				<Scripts />
 			</body>
@@ -30,11 +26,5 @@ export function Layout({ children }: PropsWithChildren) {
 }
 
 export default function App() {
-	return (
-		<View
-			backgroundColor="neutral"
-			width="100%">
-			fdlskjfsd
-		</View>
-	)
+	return <Outlet />
 }
