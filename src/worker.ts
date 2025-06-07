@@ -1,9 +1,9 @@
-import { createRequestHandler } from 'react-router'
+import { Hono } from 'hono'
 import { defineHandlers } from './utils'
 
 export default defineHandlers({
-	async fetch(request, env, ctx) {
-		return new Response('Hello, world!')
+	app: (app) => {
+		app.get('/', (c) => c.text('Hello, world!'))
 	},
 	queue(batch, _env, _ctx) {
 		for (const message of batch.messages) {
