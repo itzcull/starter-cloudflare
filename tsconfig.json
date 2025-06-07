@@ -23,8 +23,7 @@
 		"module": "esnext",
 		"jsx": "react-jsx",
 		"paths": {
-			"@db/*": ["src/db/*"],
-			"@server/*": ["src/server/*"]
+			"@utils/*": ["src/utils/*"]
 		},
 		"types": ["vite/client"]
 	},
