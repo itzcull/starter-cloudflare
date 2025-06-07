@@ -1,36 +1,13 @@
 import { createRequestHandler } from 'react-router'
+import { defineHandlers } from './utils'
 
-interface QueueMessage {
-	foo: string
-}
-
-declare module 'react-router' {
-	export interface AppLoadContext {
-		cloudflare: {
-			env: Env
-			ctx: ExecutionContext
-		}
-	}
-}
-
-const requestHandler = createRequestHandler(
-	// @ts-ignore this virtual module will exist
-	() => import('virtual:react-router/server-build'),
-	import.meta.env.MODE
-)
-
-export default {
+export default defineHandlers({
 	async fetch(request, env, ctx) {
-		return requestHandler(request, {
-			cloudflare: { env, ctx }
-		})
+		return new Response('Hello, world!')
 	},
 	queue(batch, _env, _ctx) {
 		for (const message of batch.messages) {
 			console.log(message)
 		}
-	},
-	scheduled(controller, _env, _ctx) {
-		console.log(`Run at "${new Date(controller.scheduledTime).toISOString()}" with CRON "${controller.cron}"`)
 	}
-} satisfies ExportedHandler<Env, QueueMessage>
+})
