@@ -1,20 +1,18 @@
 import { Hono } from 'hono'
 
-interface DefineHandlersOptions<Env, QueueMessage, CfHostMetadata> {
-  app: (app: Hono<Env>) => void
+interface DefineHandlersOptions<Env, App extends Hono<Env>, QueueMessage> {
+  app: (app: Hono<Env>) => App
   scheduled?: ExportedHandlerScheduledHandler<Env>
   queue?: ExportedHandlerQueueHandler<Env, QueueMessage>
 }
 
-export function defineWorkerHandlers<Env, QueueMessage, CfHostMetadata>(
-  options: DefineHandlersOptions<Env, QueueMessage, CfHostMetadata>
+/** @description Only the 'fetch', 'queue', and 'scheduled' handlers can be provisioned together. */
+export function defineWorkerHandlers<Env, App extends Hono<Env> = Hono<Env>, QueueMessage = unknown, CfHostMetadata = unknown>(
+  options: DefineHandlersOptions<Env, App, QueueMessage>
 ): ExportedHandler<Env, QueueMessage, CfHostMetadata> {
+  const { app, ...handlers } = options
   return {
-    ...options,
-    fetch: (request, env, ctx) => {
-      const app = new Hono<Env>()
-      options.app(app)
-      return app.fetch(request, env, ctx)
-    }
+    ...handlers,
+    fetch: (request, env, ctx) => app(new Hono<Env>()).fetch(request, env, ctx)
   }
 }
