@@ -23,7 +23,7 @@
 		"module": "esnext",
 		"jsx": "react-jsx",
 		"paths": {
-			"@utils/*": ["src/utils/*"]
+			"@utils/*": ["src/cf-utils/*"]
 		},
 		"types": ["vite/client"]
 	},

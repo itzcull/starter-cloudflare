@@ -1,4 +1,4 @@
-import { defineHandlers } from './utils'
+import { defineHandlers } from './cf-utils/handlers'
 
 export default defineHandlers({
 	app: (app) => app.get('/', (c) => c.text('Hello, world!')),
