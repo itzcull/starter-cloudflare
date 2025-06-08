@@ -1,6 +1,6 @@
-import { defineHandlers } from './cf-utils/handlers'
+import { defineWorkerHandlers } from './cf-utils/handlers'
 
-export default defineHandlers({
+export default defineWorkerHandlers({
 	app: (app) => app.get('/', (c) => c.text('Hello, world!')),
 	queue(batch) {
 		for (const message of batch.messages) {
