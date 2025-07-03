@@ -13,7 +13,7 @@ importers:
         version: 0.0.100(@cloudflare/workers-types@4.20250607.0)(react@19.1.0)
       hono:
         specifier: ^4.7.6
-        version: 4.7.11
+        version: 4.8.3
       typescript:
         specifier: ^5.0.0
         version: 5.8.3
@@ -1086,8 +1086,8 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
-  hono@4.7.11:
-    resolution: {integrity: sha512-rv0JMwC0KALbbmwJDEnxvQCeJh+xbS3KEWW5PC9cMJ08Ur9xgatI0HmtgYZfOdOSOeYsp5LO2cOhdI8cLEbDEQ==}
+  hono@4.8.3:
+    resolution: {integrity: sha512-jYZ6ZtfWjzBdh8H/0CIFfCBHaFL75k+KMzaM177hrWWm2TWL39YMYaJgB74uK/niRc866NMlH9B8uCvIo284WQ==}
     engines: {node: '>=16.9.0'}
 
   http-errors@2.0.0:
@@ -2535,7 +2535,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hono@4.7.11: {}
+  hono@4.8.3: {}
 
   http-errors@2.0.0:
     dependencies:
