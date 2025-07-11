@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       agents:
-        specifier: ^0.0.100
-        version: 0.0.100(@cloudflare/workers-types@4.20250607.0)(react@19.1.0)
+        specifier: ^0.0.103
+        version: 0.0.103(@cloudflare/workers-types@4.20250607.0)(react@19.1.0)
       hono:
         specifier: ^4.7.6
-        version: 4.8.3
+        version: 4.8.4
       typescript:
         specifier: ^5.0.0
         version: 5.8.3
@@ -602,8 +602,8 @@ packages:
   '@mjackson/node-fetch-server@0.6.1':
     resolution: {integrity: sha512-9ZJnk/DJjt805uv5PPv11haJIW+HHf3YEEyVXv+8iLQxLD/iXA68FH220XoiTPBC4gCg5q+IMadDw8qPqlA5wg==}
 
-  '@modelcontextprotocol/sdk@1.13.2':
-    resolution: {integrity: sha512-Vx7qOcmoKkR3qhaQ9qf3GxiVKCEu+zfJddHv6x3dY/9P6+uIwJnmuAur5aB+4FDXf41rRrDnOEGkviX5oYZ67w==}
+  '@modelcontextprotocol/sdk@1.15.1':
+    resolution: {integrity: sha512-W/XlN9c528yYn+9MQkVjxiTPgPxoxt+oczfjHBDsJx0+59+O7B75Zhsp0B16Xbwbz8ANISDajh6+V7nIcPMc5w==}
     engines: {node: '>=18'}
 
   '@opentelemetry/api@1.9.0':
@@ -788,8 +788,8 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  agents@0.0.100:
-    resolution: {integrity: sha512-xI/CJmMlK8Y3aEEXLu95kGC4wZXYTBTCS/XlguEjytSnAnCmNJtJQCnmmFi7oTAGXj753DslqQHjTSftfT/01g==}
+  agents@0.0.103:
+    resolution: {integrity: sha512-BaOH/8SVPyeEymz335QAMRplW2CGidIhxG/u50AE/2HRymKyRk3d6MrHP4YL6movQohA7BDa75a0uzS1SSO+0w==}
     peerDependencies:
       react: '*'
 
@@ -1089,8 +1089,8 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
-  hono@4.8.3:
-    resolution: {integrity: sha512-jYZ6ZtfWjzBdh8H/0CIFfCBHaFL75k+KMzaM177hrWWm2TWL39YMYaJgB74uK/niRc866NMlH9B8uCvIo284WQ==}
+  hono@4.8.4:
+    resolution: {integrity: sha512-KOIBp1+iUs0HrKztM4EHiB2UtzZDTBihDtOF5K6+WaJjCPeaW4Q92R8j63jOhvJI5+tZSMuKD9REVEXXY9illg==}
     engines: {node: '>=16.9.0'}
 
   http-errors@2.0.0:
@@ -2027,13 +2027,14 @@ snapshots:
 
   '@mjackson/node-fetch-server@0.6.1': {}
 
-  '@modelcontextprotocol/sdk@1.13.2':
+  '@modelcontextprotocol/sdk@1.15.1':
     dependencies:
       ajv: 6.12.6
       content-type: 1.0.5
       cors: 2.8.5
       cross-spawn: 7.0.6
       eventsource: 3.0.7
+      eventsource-parser: 3.0.2
       express: 5.1.0
       express-rate-limit: 7.5.0(express@5.1.0)
       pkce-challenge: 5.0.0
@@ -2188,9 +2189,9 @@ snapshots:
 
   acorn@8.14.0: {}
 
-  agents@0.0.100(@cloudflare/workers-types@4.20250607.0)(react@19.1.0):
+  agents@0.0.103(@cloudflare/workers-types@4.20250607.0)(react@19.1.0):
     dependencies:
-      '@modelcontextprotocol/sdk': 1.13.2
+      '@modelcontextprotocol/sdk': 1.15.1
       ai: 4.3.16(react@19.1.0)(zod@3.25.67)
       cron-schedule: 5.0.4
       nanoid: 5.1.5
@@ -2535,7 +2536,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hono@4.8.3: {}
+  hono@4.8.4: {}
 
   http-errors@2.0.0:
     dependencies:
