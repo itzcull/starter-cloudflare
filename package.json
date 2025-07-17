@@ -21,7 +21,7 @@
 		"wrangler": "^4.19.1"
 	},
 	"dependencies": {
-		"agents": "^0.0.100",
+		"agents": "^0.0.106",
 		"hono": "^4.7.6"
 	},
 	"peerDependencies": {
