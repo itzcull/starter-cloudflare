@@ -13,7 +13,7 @@
 		"ci": "biome check --diagnostic-level=error"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
+		"@biomejs/biome": "2.1.1",
 		"@cloudflare/vite-plugin": "^1.5.0",
 		"vite": "^7.0.0",
 		"vite-tsconfig-paths": "^5.1.4",
