@@ -22,7 +22,7 @@
 	},
 	"dependencies": {
 		"agents": "^0.0.111",
-		"hono": "^4.7.6"
+		"hono": "^4.9.6"
 	},
 	"peerDependencies": {
 		"typescript": "^5.0.0"
