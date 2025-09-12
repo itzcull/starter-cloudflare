@@ -8,7 +8,7 @@ pre-commit:
   parallel: false
   jobs:
     - name: Linter, Formatter and Sort Imports
-      run: pnpm run ci {staged_files}
+      run: pnpm run fix {staged_files}
       stage_fixed: true
       glob:
         # TypeScript files
