@@ -7,7 +7,7 @@
 		"sourceMap": true,
 		"esModuleInterop": true,
 		"inlineSourceMap": false,
-		"lib": ["esnext"],
+		"lib": ["esnext", "DOM"],
 		"listEmittedFiles": false,
 		"listFiles": false,
 		"moduleResolution": "bundler",
@@ -25,8 +25,8 @@
 		"paths": {
 			"@utils/*": ["src/cf-utils/*"]
 		},
-		"types": ["vite/client", ".react-router/*"]
+		"types": ["vite/client"]
 	},
 	"exclude": ["node_modules", "dist", "tests"],
-	"include": ["**/*"]
+	"include": ["**/*", ".react-router/**/*"]
 }

@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'hono/jsx'
+import type { PropsWithChildren } from 'react'
 import { Outlet, Scripts } from 'react-router'
 
 export function Layout({ children }: PropsWithChildren<unknown>) {
