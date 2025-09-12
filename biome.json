@@ -1,13 +1,10 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
 	"vcs": {
 		"clientKind": "git",
 		"defaultBranch": "master",
 		"enabled": true,
 		"useIgnoreFile": true
-	},
-	"files": {
-		"ignore": ["worker-configuration.d.ts"]
 	},
 	"css": {
 		"formatter": {
@@ -86,8 +83,5 @@
 				"recommended": true
 			}
 		}
-	},
-	"organizeImports": {
-		"enabled": true
 	}
 }
