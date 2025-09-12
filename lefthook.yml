@@ -1,0 +1,28 @@
+# EXAMPLE USAGE:
+#
+#   Refer for explanation to following link:
+#   https://lefthook.dev/configuration/
+#
+
+pre-commit:
+  parallel: false
+  jobs:
+    - name: Linter, Formatter and Sort Imports
+      run: pnpm run ci {staged_files}
+      stage_fixed: true
+      glob:
+        # TypeScript files
+        - '**/*.ts'
+        - '**/*.tsx'
+        - '**/*.cts'
+        - '**/*.mts'
+
+        # JavaScript files
+        - '**/*.js'
+        - '**/*.jsx'
+        - '**/*.mjs'
+        - '**/*.cjs'
+
+        # Other files
+        - '**/*.json'
+        - '**/*.css'
