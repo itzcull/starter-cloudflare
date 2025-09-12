@@ -25,8 +25,8 @@
 		"paths": {
 			"@utils/*": ["src/cf-utils/*"]
 		},
-		"types": ["vite/client"]
+		"types": ["vite/client", ".react-router/*"]
 	},
 	"exclude": ["node_modules", "dist", "tests"],
-	"include": ["**/*.ts", "worker-configuration.d.ts"]
+	"include": ["**/*"]
 }
