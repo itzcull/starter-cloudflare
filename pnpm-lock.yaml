@@ -36,6 +36,9 @@ importers:
       '@react-router/dev':
         specifier: ^7.9.0
         version: 7.9.0(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.29.2)(react-router@7.9.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.8.3)(vite@7.1.5(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.29.2))(wrangler@4.36.0(@cloudflare/workers-types@4.20250607.0))
+      '@react-router/fs-routes':
+        specifier: ^7.9.1
+        version: 7.9.1(@react-router/dev@7.9.0(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.29.2)(react-router@7.9.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.8.3)(vite@7.1.5(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.29.2))(wrangler@4.36.0(@cloudflare/workers-types@4.20250607.0)))(typescript@5.8.3)
       '@types/react':
         specifier: ^19.1.12
         version: 19.1.12
@@ -824,6 +827,16 @@ packages:
       typescript:
         optional: true
       wrangler:
+        optional: true
+
+  '@react-router/fs-routes@7.9.1':
+    resolution: {integrity: sha512-K97pQ7PIUJnmYPzoC5lrJxr3XKDn5ZLBMkp403usQJlucpP2NUfRw7I5N3NdqQ5XDbPEyROOJr6wsZnWGPPC7g==}
+    engines: {node: '>=20.0.0'}
+    peerDependencies:
+      '@react-router/dev': ^7.9.1
+      typescript: ^5.1.0
+    peerDependenciesMeta:
+      typescript:
         optional: true
 
   '@react-router/node@7.9.0':
@@ -2945,6 +2958,13 @@ snapshots:
       - terser
       - tsx
       - yaml
+
+  '@react-router/fs-routes@7.9.1(@react-router/dev@7.9.0(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.29.2)(react-router@7.9.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.8.3)(vite@7.1.5(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.29.2))(wrangler@4.36.0(@cloudflare/workers-types@4.20250607.0)))(typescript@5.8.3)':
+    dependencies:
+      '@react-router/dev': 7.9.0(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.29.2)(react-router@7.9.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.8.3)(vite@7.1.5(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.29.2))(wrangler@4.36.0(@cloudflare/workers-types@4.20250607.0))
+      minimatch: 9.0.5
+    optionalDependencies:
+      typescript: 5.8.3
 
   '@react-router/node@7.9.0(react-router@7.9.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.8.3)':
     dependencies:
