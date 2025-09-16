@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from 'react'
 import { Outlet, Scripts } from 'react-router'
 import { Reshaped } from 'reshaped'
+import { SystemThemeScript } from './components/system-theme-script'
 
 export function Layout({ children }: PropsWithChildren<unknown>) {
 	return (
@@ -12,8 +13,9 @@ export function Layout({ children }: PropsWithChildren<unknown>) {
 				/>
 			</head>
 			<body>
-				<Reshaped theme="slate">{children}</Reshaped>
+				<Reshaped>{children}</Reshaped>
 				<Scripts />
+				<SystemThemeScript />
 			</body>
 		</html>
 	)
