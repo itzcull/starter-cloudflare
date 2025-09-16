@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react'
-import { Outlet, Scripts } from 'react-router'
+import { Links, Meta, Outlet, Scripts } from 'react-router'
 import { Reshaped } from 'reshaped'
 import { SystemThemeScript } from './components/system-theme-script'
 import 'reshaped/themes/slate/theme.css'
@@ -12,6 +12,8 @@ export function Layout({ children }: PropsWithChildren<unknown>) {
 					rel="icon"
 					href="/favicon.ico"
 				/>
+				<Meta />
+				<Links />
 			</head>
 			<body>
 				<Reshaped theme="slate">{children}</Reshaped>
