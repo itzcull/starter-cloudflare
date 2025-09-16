@@ -10,9 +10,5 @@
 	"logpush": true,
 	"observability": {
 		"enabled": true
-	},
-	"route": {
-		"pattern": "example.com/*",
-		"zone_name": "example.com"
 	}
 }

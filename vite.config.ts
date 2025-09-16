@@ -4,5 +4,17 @@ import { defineConfig } from 'vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
-	plugins: [cloudflare(), reactRouter(), tsconfigPaths()]
+	plugins: [
+		cloudflare({
+			viteEnvironment: {
+				name: 'ssr' // This turned out to be ridiculously important, I couldn't run 'vite preview' or 'wrangler deploy' without it
+			},
+			configPath: './wrangler.jsonc',
+			persistState: {
+				path: './.wrangler/state'
+			}
+		}),
+		reactRouter(),
+		tsconfigPaths()
+	]
 })
