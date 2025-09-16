@@ -27,6 +27,6 @@
 		},
 		"types": ["vite/client"]
 	},
-	"exclude": ["node_modules", "dist", "tests", "build"],
+	"exclude": ["node_modules", "dist", "build"],
 	"include": ["**/*", ".react-router/**/*"]
 }
