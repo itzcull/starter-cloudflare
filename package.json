@@ -27,7 +27,7 @@
 		"wrangler": "^4.36.0"
 	},
 	"dependencies": {
-		"agents": "^0.0.113",
+		"agents": "^0.2.0",
 		"hono": "^4.7.6",
 		"react": "18",
 		"react-dom": "18",
