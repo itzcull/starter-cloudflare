@@ -2,7 +2,6 @@
 	"compilerOptions": {
 		"allowJs": true,
 		"allowSyntheticDefaultImports": true,
-		"baseUrl": "src",
 		"declaration": true,
 		"sourceMap": true,
 		"esModuleInterop": true,
@@ -23,7 +22,7 @@
 		"module": "esnext",
 		"jsx": "react-jsx",
 		"paths": {
-			"@utils/*": ["src/cf-utils/*"]
+			"@cf-utils/*": ["./src/cf-utils/*"]
 		},
 		"types": ["vite/client"]
 	},

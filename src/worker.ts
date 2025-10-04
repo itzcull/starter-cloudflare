@@ -1,6 +1,6 @@
+import { defineWorkerHandlers } from '@cf-utils/handlers'
 import { logger } from 'hono/logger'
 import { createRequestHandler } from 'react-router'
-import { defineWorkerHandlers } from './cf-utils/handlers'
 
 const handler = createRequestHandler(() => import('virtual:react-router/server-build'))
 
