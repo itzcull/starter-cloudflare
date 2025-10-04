@@ -16,8 +16,8 @@
 	"devDependencies": {
 		"@biomejs/biome": "^2",
 		"@cloudflare/vite-plugin": "^1.13.0",
-		"@react-router/dev": "^7.9.0",
-		"@react-router/fs-routes": "^7.9.1",
+		"@react-router/dev": "^7.9.3",
+		"@react-router/fs-routes": "^7.9.3",
 		"@types/react": "18",
 		"@types/react-dom": "18",
 		"lefthook": "^1.13.0",
@@ -31,7 +31,7 @@
 		"hono": "^4.7.6",
 		"react": "18",
 		"react-dom": "18",
-		"react-router": "^7.9.0",
+		"react-router": "^7.9.3",
 		"reshaped": "^3.7.4"
 	},
 	"peerDependencies": {
