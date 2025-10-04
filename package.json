@@ -14,7 +14,7 @@
 		"fix": "biome check --write"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.2.2",
+		"@biomejs/biome": "^2",
 		"@cloudflare/vite-plugin": "^1.13.0",
 		"@react-router/dev": "^7.9.0",
 		"@react-router/fs-routes": "^7.9.1",
