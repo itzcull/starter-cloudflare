@@ -25,7 +25,7 @@ importers:
         version: 7.9.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       reshaped:
         specifier: ^3.7.4
-        version: 3.8.5(postcss@8.5.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 3.8.7(postcss@8.5.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       typescript:
         specifier: ^5
         version: 5.8.3
@@ -426,8 +426,8 @@ packages:
     peerDependencies:
       postcss: ^8.4
 
-  '@ecies/ciphers@0.2.4':
-    resolution: {integrity: sha512-t+iX+Wf5nRKyNzk8dviW3Ikb/280+aEJAnw9YXvCp2tYGPSkMki+NRY+8aNLmVFv3eNtMdvViPNOPxS8SZNP+w==}
+  '@ecies/ciphers@0.2.5':
+    resolution: {integrity: sha512-GalEZH4JgOMHYYcYmVqnFirFsjZHeoGMDt9IxEnM9F7GRUUyUksJ7Ou53L83WHJq3RWKD3AcBpo0iQh0oMpf8A==}
     engines: {bun: '>=1', deno: '>=2', node: '>=16'}
     peerDependencies:
       '@noble/ciphers': ^1.0.0
@@ -3949,8 +3949,8 @@ packages:
   require-main-filename@2.0.0:
     resolution: {integrity: sha512-NKN5kMDylKuldxYLSUfrbo5Tuzh4hd+2E8NPPX02mZtn1VuREQToYe/ZdlJy+J3uCpfaiGF05e7B8W0iXbQHmg==}
 
-  reshaped@3.8.5:
-    resolution: {integrity: sha512-RUeLRHdX2rkykVyeuWnZjU4CoU832/SP4d9sl2+Za03aYcr0c0IB1v8j+LQZK5bsUbngnDnuRqYN+XXLGyE1gg==}
+  reshaped@3.8.7:
+    resolution: {integrity: sha512-3VwDjzvo65jQYwP44bWf2AvkTX43vd3G+WoQHCyTxEkEMlYwin8W4LRLqtckHyQpPl6cLJxzl6H/UPXMm26Gcg==}
     engines: {node: '>=22'}
     hasBin: true
     peerDependencies:
@@ -5223,7 +5223,7 @@ snapshots:
     dependencies:
       postcss: 8.5.6
 
-  '@ecies/ciphers@0.2.4(@noble/ciphers@1.3.0)':
+  '@ecies/ciphers@0.2.5(@noble/ciphers@1.3.0)':
     dependencies:
       '@noble/ciphers': 1.3.0
     optional: true
@@ -8611,7 +8611,7 @@ snapshots:
 
   eciesjs@0.4.16:
     dependencies:
-      '@ecies/ciphers': 0.2.4(@noble/ciphers@1.3.0)
+      '@ecies/ciphers': 0.2.5(@noble/ciphers@1.3.0)
       '@noble/ciphers': 1.3.0
       '@noble/curves': 1.9.7
       '@noble/hashes': 1.8.0
@@ -10050,7 +10050,7 @@ snapshots:
   require-main-filename@2.0.0:
     optional: true
 
-  reshaped@3.8.5(postcss@8.5.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  reshaped@3.8.7(postcss@8.5.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@changesets/changelog-github': 0.5.1
       '@csstools/postcss-global-data': 3.1.0(postcss@8.5.6)
