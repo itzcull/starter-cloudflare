@@ -4,6 +4,6 @@ export default {
 	appDirectory: './src/app/',
 	buildDirectory: 'build',
 	future: {
-		unstable_viteEnvironmentApi: true
+		v8_viteEnvironmentApi: true
 	}
 } satisfies Config
