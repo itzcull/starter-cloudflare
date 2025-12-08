@@ -13,7 +13,11 @@
 		"format": "biome format --write",
 		"ci": "biome check --diagnostic-level=error",
 		"fix": "biome check --write",
-		"test:browser": "vitest --config=vitest.browser.config.ts"
+		"test:browser": "vitest --config=vitest.browser.config.ts",
+		"db:generate": "drizzle-kit generate",
+		"db:push": "drizzle-kit push",
+		"db:migrate": "drizzle-kit migrate",
+		"db:studio": "drizzle-kit studio"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.3.8",
@@ -23,10 +27,12 @@
 		"@testing-library/jest-dom": "^6.9.1",
 		"@testing-library/react": "^16.3.0",
 		"@testing-library/user-event": "^14.6.1",
+		"@types/node": "^24.10.1",
 		"@types/react": "^19.2.7",
 		"@types/react-dom": "^19.2.3",
 		"@vitejs/plugin-react": "^5.1.2",
 		"@vitest/browser-playwright": "^4.0.15",
+		"drizzle-kit": "^0.31.8",
 		"happy-dom": "^20.0.11",
 		"lefthook": "^2.0.9",
 		"typescript": "^5.9.3",
@@ -38,7 +44,10 @@
 	},
 	"dependencies": {
 		"agents": "^0.2.30",
+		"better-auth": "^1.4.5",
+		"drizzle-orm": "^0.45.0",
 		"hono": "^4.10.7",
+		"postgres": "^3.4.7",
 		"react": "^19.2.1",
 		"react-dom": "^19.2.1",
 		"react-router": "^7.10.1",

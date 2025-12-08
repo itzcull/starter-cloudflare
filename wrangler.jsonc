@@ -10,5 +10,14 @@
 	"logpush": true,
 	"observability": {
 		"enabled": true
+	},
+	"hyperdrive": [
+		{
+			"binding": "HYPERDRIVE",
+			"id": "<HYPERDRIVE_ID>"
+		}
+	],
+	"vars": {
+		"BETTER_AUTH_SECRET": "placeholder"
 	}
 }

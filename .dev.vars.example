@@ -1,0 +1,3 @@
+DATABASE_URL=postgres://username:password@localhost:5432/dbname
+WRANGLER_HYPERDRIVE_LOCAL_CONNECTION_STRING_HYPERDRIVE=postgres://username:password@localhost:5432/dbname
+BETTER_AUTH_SECRET=<generate with: openssl rand -base64 32>
