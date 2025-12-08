@@ -10,12 +10,10 @@
 		"listEmittedFiles": false,
 		"listFiles": false,
 		"moduleResolution": "bundler",
-		"noFallthroughCasesInSwitch": true,
 		"pretty": true,
 		"resolveJsonModule": true,
 		"rootDir": ".",
 		"skipLibCheck": true,
-		"strict": false,
 		"traceResolution": false,
 		"outDir": "",
 		"target": "esnext",
@@ -24,7 +22,19 @@
 		"paths": {
 			"@cf-utils/*": ["./src/cf-utils/*"]
 		},
-		"types": ["vite/client"]
+		"types": ["vite/client"],
+		"strict": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"strictFunctionTypes": true,
+		"strictBindCallApply": true,
+		"strictPropertyInitialization": true,
+		"noImplicitThis": true,
+		"alwaysStrict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true
 	},
 	"exclude": ["node_modules", "dist", "build"],
 	"include": ["**/*", ".react-router/**/*"]
