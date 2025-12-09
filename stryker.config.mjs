@@ -3,7 +3,7 @@ export default {
 	packageManager: 'pnpm',
 	testRunner: 'vitest',
 	vitest: {
-		configFile: 'vitest.config.ts',
+		configFile: 'vitest.config.ts'
 	},
 	checkers: ['typescript'],
 	tsconfigFile: 'tsconfig.json',
@@ -13,6 +13,6 @@ export default {
 	thresholds: {
 		high: 80,
 		low: 60,
-		break: null,
-	},
+		break: null
+	}
 }

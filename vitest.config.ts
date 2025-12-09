@@ -45,7 +45,8 @@ export default defineConfig({
 						...defaultExclude,
 						'**/*.browser.test.{ts,tsx}',
 						'**/*.react.test.{ts,tsx}',
-						'**/*.worker.test.{ts,tsx}'
+						'**/*.worker.test.{ts,tsx}',
+						'**/*.integration.test.{ts,tsx}'
 					],
 					globals: true,
 					environment: 'node'
@@ -59,6 +60,25 @@ export default defineConfig({
 					exclude: defaultExclude,
 					globals: true,
 					environment: 'edge-runtime'
+				}
+			},
+			{
+				plugins: [tsconfigPaths()],
+				test: {
+					name: 'integration',
+					include: ['**/*.integration.test.{ts,tsx}'],
+					exclude: defaultExclude,
+					globals: true,
+					environment: 'node',
+					globalSetup: ['./test/setup/global-setup.ts'],
+					testTimeout: 30000,
+					hookTimeout: 60000,
+					pool: 'forks',
+					poolOptions: {
+						forks: {
+							singleFork: true
+						}
+					}
 				}
 			}
 		]
