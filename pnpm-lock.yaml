@@ -41,22 +41,22 @@ importers:
         version: 2.3.8
       '@cloudflare/vite-plugin':
         specifier: ^1.17.0
-        version: 1.17.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2))(workerd@1.20251202.0)(wrangler@4.53.0(@cloudflare/workers-types@4.20250607.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+        version: 1.17.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2))(workerd@1.20251202.0)(wrangler@4.53.0(@cloudflare/workers-types@4.20250607.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@react-router/dev':
         specifier: ^7.10.1
-        version: 7.10.1(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2)(react-router@7.10.1(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(typescript@5.9.3)(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2))(wrangler@4.53.0(@cloudflare/workers-types@4.20250607.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+        version: 7.10.1(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2)(react-router@7.10.1(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(typescript@5.9.3)(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2))(wrangler@4.53.0(@cloudflare/workers-types@4.20250607.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@react-router/fs-routes':
         specifier: ^7.10.1
-        version: 7.10.1(@react-router/dev@7.10.1(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2)(react-router@7.10.1(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(typescript@5.9.3)(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2))(wrangler@4.53.0(@cloudflare/workers-types@4.20250607.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(typescript@5.9.3)
+        version: 7.10.1(@react-router/dev@7.10.1(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2)(react-router@7.10.1(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(typescript@5.9.3)(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2))(wrangler@4.53.0(@cloudflare/workers-types@4.20250607.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(typescript@5.9.3)
       '@stryker-mutator/core':
         specifier: ^9.4.0
-        version: 9.4.0(@types/node@24.10.1)
+        version: 9.4.0(@types/node@24.10.2)
       '@stryker-mutator/typescript-checker':
         specifier: ^9.4.0
-        version: 9.4.0(@stryker-mutator/core@9.4.0(@types/node@24.10.1))(typescript@5.9.3)
+        version: 9.4.0(@stryker-mutator/core@9.4.0(@types/node@24.10.2))(typescript@5.9.3)
       '@stryker-mutator/vitest-runner':
         specifier: ^9.4.0
-        version: 9.4.0(@stryker-mutator/core@9.4.0(@types/node@24.10.1))(vitest@4.0.15)
+        version: 9.4.0(@stryker-mutator/core@9.4.0(@types/node@24.10.2))(vitest@4.0.15)
       '@testing-library/jest-dom':
         specifier: ^6.9.1
         version: 6.9.1
@@ -68,7 +68,7 @@ importers:
         version: 14.6.1(@testing-library/dom@10.4.1)
       '@types/node':
         specifier: ^24.10.1
-        version: 24.10.1
+        version: 24.10.2
       '@types/react':
         specifier: ^19.2.7
         version: 19.2.7
@@ -77,10 +77,10 @@ importers:
         version: 19.2.3(@types/react@19.2.7)
       '@vitejs/plugin-react':
         specifier: ^5.1.2
-        version: 5.1.2(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2))
+        version: 5.1.2(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2))
       '@vitest/browser-playwright':
         specifier: ^4.0.15
-        version: 4.0.15(bufferutil@4.0.9)(playwright@1.57.0)(utf-8-validate@5.0.10)(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2))(vitest@4.0.15)
+        version: 4.0.15(bufferutil@4.0.9)(playwright@1.57.0)(utf-8-validate@5.0.10)(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2))(vitest@4.0.15)
       drizzle-kit:
         specifier: ^0.31.8
         version: 0.31.8
@@ -95,13 +95,13 @@ importers:
         version: 5.9.3
       vite:
         specifier: ^7.2.7
-        version: 7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2)
+        version: 7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2)
       vite-tsconfig-paths:
         specifier: ^5.1.4
-        version: 5.1.4(typescript@5.9.3)(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2))
+        version: 5.1.4(typescript@5.9.3)(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2))
       vitest:
         specifier: ^4.0.15
-        version: 4.0.15(@opentelemetry/api@1.9.0)(@types/node@24.10.1)(@vitest/browser-playwright@4.0.15)(happy-dom@20.0.11)(jiti@2.4.2)(lightningcss@1.29.2)
+        version: 4.0.15(@opentelemetry/api@1.9.0)(@types/node@24.10.2)(@vitest/browser-playwright@4.0.15)(happy-dom@20.0.11)(jiti@2.4.2)(lightningcss@1.29.2)
       vitest-browser-react:
         specifier: ^2.0.2
         version: 2.0.2(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(vitest@4.0.15)
@@ -1539,11 +1539,11 @@ packages:
   '@types/lodash@4.17.21':
     resolution: {integrity: sha512-FOvQ0YPD5NOfPgMzJihoT+Za5pdkDJWcbpuj1DjaKZIr/gxodQjY/uWEFlTNqW2ugXHUiL8lRQgw63dzKHZdeQ==}
 
-  '@types/node@20.19.25':
-    resolution: {integrity: sha512-ZsJzA5thDQMSQO788d7IocwwQbI8B5OPzmqNvpf3NY/+MHDAS759Wo0gd2WQeXYt5AAAQjzcrTVC6SKCuYgoCQ==}
+  '@types/node@20.19.26':
+    resolution: {integrity: sha512-0l6cjgF0XnihUpndDhk+nyD3exio3iKaYROSgvh/qSevPXax3L8p5DBRFjbvalnwatGgHEQn2R88y2fA3g4irg==}
 
-  '@types/node@24.10.1':
-    resolution: {integrity: sha512-GNWcUTRBgIRJD5zj+Tq0fKOJ5XZajIiBroOF0yvj2bSU1WvNdYS/dn9UxwsujGW4JX06dnHyjV2y9rRaybH0iQ==}
+  '@types/node@24.10.2':
+    resolution: {integrity: sha512-WOhQTZ4G8xZ1tjJTvKOpyEVSGgOTvJAfDK3FNFgELyaTpzhdgHVHeqW8V+UJvzF5BT+/B54T/1S2K6gd9c7bbA==}
 
   '@types/react-dom@19.2.3':
     resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
@@ -3931,7 +3931,7 @@ snapshots:
     optionalDependencies:
       workerd: 1.20251202.0
 
-  '@cloudflare/vite-plugin@1.17.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2))(workerd@1.20251202.0)(wrangler@4.53.0(@cloudflare/workers-types@4.20250607.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+  '@cloudflare/vite-plugin@1.17.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2))(workerd@1.20251202.0)(wrangler@4.53.0(@cloudflare/workers-types@4.20250607.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
     dependencies:
       '@cloudflare/unenv-preset': 2.7.13(unenv@2.0.0-rc.24)(workerd@1.20251202.0)
       '@remix-run/node-fetch-server': 0.8.1
@@ -3941,7 +3941,7 @@ snapshots:
       picocolors: 1.1.1
       tinyglobby: 0.2.15
       unenv: 2.0.0-rc.24
-      vite: 7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2)
+      vite: 7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2)
       wrangler: 4.53.0(@cloudflare/workers-types@4.20250607.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       ws: 8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
@@ -4306,122 +4306,122 @@ snapshots:
 
   '@inquirer/ansi@2.0.2': {}
 
-  '@inquirer/checkbox@5.0.2(@types/node@24.10.1)':
+  '@inquirer/checkbox@5.0.2(@types/node@24.10.2)':
     dependencies:
       '@inquirer/ansi': 2.0.2
-      '@inquirer/core': 11.0.2(@types/node@24.10.1)
+      '@inquirer/core': 11.0.2(@types/node@24.10.2)
       '@inquirer/figures': 2.0.2
-      '@inquirer/type': 4.0.2(@types/node@24.10.1)
+      '@inquirer/type': 4.0.2(@types/node@24.10.2)
     optionalDependencies:
-      '@types/node': 24.10.1
+      '@types/node': 24.10.2
 
-  '@inquirer/confirm@6.0.2(@types/node@24.10.1)':
+  '@inquirer/confirm@6.0.2(@types/node@24.10.2)':
     dependencies:
-      '@inquirer/core': 11.0.2(@types/node@24.10.1)
-      '@inquirer/type': 4.0.2(@types/node@24.10.1)
+      '@inquirer/core': 11.0.2(@types/node@24.10.2)
+      '@inquirer/type': 4.0.2(@types/node@24.10.2)
     optionalDependencies:
-      '@types/node': 24.10.1
+      '@types/node': 24.10.2
 
-  '@inquirer/core@11.0.2(@types/node@24.10.1)':
+  '@inquirer/core@11.0.2(@types/node@24.10.2)':
     dependencies:
       '@inquirer/ansi': 2.0.2
       '@inquirer/figures': 2.0.2
-      '@inquirer/type': 4.0.2(@types/node@24.10.1)
+      '@inquirer/type': 4.0.2(@types/node@24.10.2)
       cli-width: 4.1.0
       mute-stream: 3.0.0
       signal-exit: 4.1.0
       wrap-ansi: 9.0.2
     optionalDependencies:
-      '@types/node': 24.10.1
+      '@types/node': 24.10.2
 
-  '@inquirer/editor@5.0.2(@types/node@24.10.1)':
+  '@inquirer/editor@5.0.2(@types/node@24.10.2)':
     dependencies:
-      '@inquirer/core': 11.0.2(@types/node@24.10.1)
-      '@inquirer/external-editor': 2.0.2(@types/node@24.10.1)
-      '@inquirer/type': 4.0.2(@types/node@24.10.1)
+      '@inquirer/core': 11.0.2(@types/node@24.10.2)
+      '@inquirer/external-editor': 2.0.2(@types/node@24.10.2)
+      '@inquirer/type': 4.0.2(@types/node@24.10.2)
     optionalDependencies:
-      '@types/node': 24.10.1
+      '@types/node': 24.10.2
 
-  '@inquirer/expand@5.0.2(@types/node@24.10.1)':
+  '@inquirer/expand@5.0.2(@types/node@24.10.2)':
     dependencies:
-      '@inquirer/core': 11.0.2(@types/node@24.10.1)
-      '@inquirer/type': 4.0.2(@types/node@24.10.1)
+      '@inquirer/core': 11.0.2(@types/node@24.10.2)
+      '@inquirer/type': 4.0.2(@types/node@24.10.2)
     optionalDependencies:
-      '@types/node': 24.10.1
+      '@types/node': 24.10.2
 
-  '@inquirer/external-editor@2.0.2(@types/node@24.10.1)':
+  '@inquirer/external-editor@2.0.2(@types/node@24.10.2)':
     dependencies:
       chardet: 2.1.1
       iconv-lite: 0.7.0
     optionalDependencies:
-      '@types/node': 24.10.1
+      '@types/node': 24.10.2
 
   '@inquirer/figures@2.0.2': {}
 
-  '@inquirer/input@5.0.2(@types/node@24.10.1)':
+  '@inquirer/input@5.0.2(@types/node@24.10.2)':
     dependencies:
-      '@inquirer/core': 11.0.2(@types/node@24.10.1)
-      '@inquirer/type': 4.0.2(@types/node@24.10.1)
+      '@inquirer/core': 11.0.2(@types/node@24.10.2)
+      '@inquirer/type': 4.0.2(@types/node@24.10.2)
     optionalDependencies:
-      '@types/node': 24.10.1
+      '@types/node': 24.10.2
 
-  '@inquirer/number@4.0.2(@types/node@24.10.1)':
+  '@inquirer/number@4.0.2(@types/node@24.10.2)':
     dependencies:
-      '@inquirer/core': 11.0.2(@types/node@24.10.1)
-      '@inquirer/type': 4.0.2(@types/node@24.10.1)
+      '@inquirer/core': 11.0.2(@types/node@24.10.2)
+      '@inquirer/type': 4.0.2(@types/node@24.10.2)
     optionalDependencies:
-      '@types/node': 24.10.1
+      '@types/node': 24.10.2
 
-  '@inquirer/password@5.0.2(@types/node@24.10.1)':
-    dependencies:
-      '@inquirer/ansi': 2.0.2
-      '@inquirer/core': 11.0.2(@types/node@24.10.1)
-      '@inquirer/type': 4.0.2(@types/node@24.10.1)
-    optionalDependencies:
-      '@types/node': 24.10.1
-
-  '@inquirer/prompts@8.0.2(@types/node@24.10.1)':
-    dependencies:
-      '@inquirer/checkbox': 5.0.2(@types/node@24.10.1)
-      '@inquirer/confirm': 6.0.2(@types/node@24.10.1)
-      '@inquirer/editor': 5.0.2(@types/node@24.10.1)
-      '@inquirer/expand': 5.0.2(@types/node@24.10.1)
-      '@inquirer/input': 5.0.2(@types/node@24.10.1)
-      '@inquirer/number': 4.0.2(@types/node@24.10.1)
-      '@inquirer/password': 5.0.2(@types/node@24.10.1)
-      '@inquirer/rawlist': 5.0.2(@types/node@24.10.1)
-      '@inquirer/search': 4.0.2(@types/node@24.10.1)
-      '@inquirer/select': 5.0.2(@types/node@24.10.1)
-    optionalDependencies:
-      '@types/node': 24.10.1
-
-  '@inquirer/rawlist@5.0.2(@types/node@24.10.1)':
-    dependencies:
-      '@inquirer/core': 11.0.2(@types/node@24.10.1)
-      '@inquirer/type': 4.0.2(@types/node@24.10.1)
-    optionalDependencies:
-      '@types/node': 24.10.1
-
-  '@inquirer/search@4.0.2(@types/node@24.10.1)':
-    dependencies:
-      '@inquirer/core': 11.0.2(@types/node@24.10.1)
-      '@inquirer/figures': 2.0.2
-      '@inquirer/type': 4.0.2(@types/node@24.10.1)
-    optionalDependencies:
-      '@types/node': 24.10.1
-
-  '@inquirer/select@5.0.2(@types/node@24.10.1)':
+  '@inquirer/password@5.0.2(@types/node@24.10.2)':
     dependencies:
       '@inquirer/ansi': 2.0.2
-      '@inquirer/core': 11.0.2(@types/node@24.10.1)
-      '@inquirer/figures': 2.0.2
-      '@inquirer/type': 4.0.2(@types/node@24.10.1)
+      '@inquirer/core': 11.0.2(@types/node@24.10.2)
+      '@inquirer/type': 4.0.2(@types/node@24.10.2)
     optionalDependencies:
-      '@types/node': 24.10.1
+      '@types/node': 24.10.2
 
-  '@inquirer/type@4.0.2(@types/node@24.10.1)':
+  '@inquirer/prompts@8.0.2(@types/node@24.10.2)':
+    dependencies:
+      '@inquirer/checkbox': 5.0.2(@types/node@24.10.2)
+      '@inquirer/confirm': 6.0.2(@types/node@24.10.2)
+      '@inquirer/editor': 5.0.2(@types/node@24.10.2)
+      '@inquirer/expand': 5.0.2(@types/node@24.10.2)
+      '@inquirer/input': 5.0.2(@types/node@24.10.2)
+      '@inquirer/number': 4.0.2(@types/node@24.10.2)
+      '@inquirer/password': 5.0.2(@types/node@24.10.2)
+      '@inquirer/rawlist': 5.0.2(@types/node@24.10.2)
+      '@inquirer/search': 4.0.2(@types/node@24.10.2)
+      '@inquirer/select': 5.0.2(@types/node@24.10.2)
     optionalDependencies:
-      '@types/node': 24.10.1
+      '@types/node': 24.10.2
+
+  '@inquirer/rawlist@5.0.2(@types/node@24.10.2)':
+    dependencies:
+      '@inquirer/core': 11.0.2(@types/node@24.10.2)
+      '@inquirer/type': 4.0.2(@types/node@24.10.2)
+    optionalDependencies:
+      '@types/node': 24.10.2
+
+  '@inquirer/search@4.0.2(@types/node@24.10.2)':
+    dependencies:
+      '@inquirer/core': 11.0.2(@types/node@24.10.2)
+      '@inquirer/figures': 2.0.2
+      '@inquirer/type': 4.0.2(@types/node@24.10.2)
+    optionalDependencies:
+      '@types/node': 24.10.2
+
+  '@inquirer/select@5.0.2(@types/node@24.10.2)':
+    dependencies:
+      '@inquirer/ansi': 2.0.2
+      '@inquirer/core': 11.0.2(@types/node@24.10.2)
+      '@inquirer/figures': 2.0.2
+      '@inquirer/type': 4.0.2(@types/node@24.10.2)
+    optionalDependencies:
+      '@types/node': 24.10.2
+
+  '@inquirer/type@4.0.2(@types/node@24.10.2)':
+    optionalDependencies:
+      '@types/node': 24.10.2
 
   '@isaacs/balanced-match@4.0.1': {}
 
@@ -4509,7 +4509,7 @@ snapshots:
 
   '@poppinss/exception@1.2.2': {}
 
-  '@react-router/dev@7.10.1(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2)(react-router@7.10.1(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(typescript@5.9.3)(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2))(wrangler@4.53.0(@cloudflare/workers-types@4.20250607.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+  '@react-router/dev@7.10.1(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2)(react-router@7.10.1(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(typescript@5.9.3)(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2))(wrangler@4.53.0(@cloudflare/workers-types@4.20250607.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/generator': 7.28.5
@@ -4539,8 +4539,8 @@ snapshots:
       semver: 7.7.3
       tinyglobby: 0.2.15
       valibot: 1.2.0(typescript@5.9.3)
-      vite: 7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2)
-      vite-node: 3.2.4(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2)
+      vite: 7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2)
+      vite-node: 3.2.4(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2)
     optionalDependencies:
       typescript: 5.9.3
       wrangler: 4.53.0(@cloudflare/workers-types@4.20250607.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)
@@ -4559,9 +4559,9 @@ snapshots:
       - tsx
       - yaml
 
-  '@react-router/fs-routes@7.10.1(@react-router/dev@7.10.1(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2)(react-router@7.10.1(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(typescript@5.9.3)(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2))(wrangler@4.53.0(@cloudflare/workers-types@4.20250607.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(typescript@5.9.3)':
+  '@react-router/fs-routes@7.10.1(@react-router/dev@7.10.1(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2)(react-router@7.10.1(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(typescript@5.9.3)(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2))(wrangler@4.53.0(@cloudflare/workers-types@4.20250607.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(typescript@5.9.3)':
     dependencies:
-      '@react-router/dev': 7.10.1(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2)(react-router@7.10.1(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(typescript@5.9.3)(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2))(wrangler@4.53.0(@cloudflare/workers-types@4.20250607.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@react-router/dev': 7.10.1(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2)(react-router@7.10.1(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(typescript@5.9.3)(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2))(wrangler@4.53.0(@cloudflare/workers-types@4.20250607.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       minimatch: 9.0.5
     optionalDependencies:
       typescript: 5.9.3
@@ -4678,9 +4678,9 @@ snapshots:
       tslib: 2.8.1
       typed-inject: 5.0.0
 
-  '@stryker-mutator/core@9.4.0(@types/node@24.10.1)':
+  '@stryker-mutator/core@9.4.0(@types/node@24.10.2)':
     dependencies:
-      '@inquirer/prompts': 8.0.2(@types/node@24.10.1)
+      '@inquirer/prompts': 8.0.2(@types/node@24.10.2)
       '@stryker-mutator/api': 9.4.0
       '@stryker-mutator/instrumenter': 9.4.0
       '@stryker-mutator/util': 9.4.0
@@ -4726,23 +4726,23 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@stryker-mutator/typescript-checker@9.4.0(@stryker-mutator/core@9.4.0(@types/node@24.10.1))(typescript@5.9.3)':
+  '@stryker-mutator/typescript-checker@9.4.0(@stryker-mutator/core@9.4.0(@types/node@24.10.2))(typescript@5.9.3)':
     dependencies:
       '@stryker-mutator/api': 9.4.0
-      '@stryker-mutator/core': 9.4.0(@types/node@24.10.1)
+      '@stryker-mutator/core': 9.4.0(@types/node@24.10.2)
       '@stryker-mutator/util': 9.4.0
       semver: 7.7.3
       typescript: 5.9.3
 
   '@stryker-mutator/util@9.4.0': {}
 
-  '@stryker-mutator/vitest-runner@9.4.0(@stryker-mutator/core@9.4.0(@types/node@24.10.1))(vitest@4.0.15)':
+  '@stryker-mutator/vitest-runner@9.4.0(@stryker-mutator/core@9.4.0(@types/node@24.10.2))(vitest@4.0.15)':
     dependencies:
       '@stryker-mutator/api': 9.4.0
-      '@stryker-mutator/core': 9.4.0(@types/node@24.10.1)
+      '@stryker-mutator/core': 9.4.0(@types/node@24.10.2)
       '@stryker-mutator/util': 9.4.0
       tslib: 2.8.1
-      vitest: 4.0.15(@opentelemetry/api@1.9.0)(@types/node@24.10.1)(@vitest/browser-playwright@4.0.15)(happy-dom@20.0.11)(jiti@2.4.2)(lightningcss@1.29.2)
+      vitest: 4.0.15(@opentelemetry/api@1.9.0)(@types/node@24.10.2)(@vitest/browser-playwright@4.0.15)(happy-dom@20.0.11)(jiti@2.4.2)(lightningcss@1.29.2)
 
   '@testing-library/dom@10.4.1':
     dependencies:
@@ -4814,11 +4814,11 @@ snapshots:
 
   '@types/lodash@4.17.21': {}
 
-  '@types/node@20.19.25':
+  '@types/node@20.19.26':
     dependencies:
       undici-types: 6.21.0
 
-  '@types/node@24.10.1':
+  '@types/node@24.10.2':
     dependencies:
       undici-types: 7.16.0
 
@@ -4834,7 +4834,7 @@ snapshots:
 
   '@vercel/oidc@3.0.5': {}
 
-  '@vitejs/plugin-react@5.1.2(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2))':
+  '@vitejs/plugin-react@5.1.2(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2))':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/plugin-transform-react-jsx-self': 7.27.1(@babel/core@7.28.5)
@@ -4842,33 +4842,33 @@ snapshots:
       '@rolldown/pluginutils': 1.0.0-beta.53
       '@types/babel__core': 7.20.5
       react-refresh: 0.18.0
-      vite: 7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2)
+      vite: 7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2)
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/browser-playwright@4.0.15(bufferutil@4.0.9)(playwright@1.57.0)(utf-8-validate@5.0.10)(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2))(vitest@4.0.15)':
+  '@vitest/browser-playwright@4.0.15(bufferutil@4.0.9)(playwright@1.57.0)(utf-8-validate@5.0.10)(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2))(vitest@4.0.15)':
     dependencies:
-      '@vitest/browser': 4.0.15(bufferutil@4.0.9)(utf-8-validate@5.0.10)(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2))(vitest@4.0.15)
-      '@vitest/mocker': 4.0.15(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2))
+      '@vitest/browser': 4.0.15(bufferutil@4.0.9)(utf-8-validate@5.0.10)(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2))(vitest@4.0.15)
+      '@vitest/mocker': 4.0.15(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2))
       playwright: 1.57.0
       tinyrainbow: 3.0.3
-      vitest: 4.0.15(@opentelemetry/api@1.9.0)(@types/node@24.10.1)(@vitest/browser-playwright@4.0.15)(happy-dom@20.0.11)(jiti@2.4.2)(lightningcss@1.29.2)
+      vitest: 4.0.15(@opentelemetry/api@1.9.0)(@types/node@24.10.2)(@vitest/browser-playwright@4.0.15)(happy-dom@20.0.11)(jiti@2.4.2)(lightningcss@1.29.2)
     transitivePeerDependencies:
       - bufferutil
       - msw
       - utf-8-validate
       - vite
 
-  '@vitest/browser@4.0.15(bufferutil@4.0.9)(utf-8-validate@5.0.10)(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2))(vitest@4.0.15)':
+  '@vitest/browser@4.0.15(bufferutil@4.0.9)(utf-8-validate@5.0.10)(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2))(vitest@4.0.15)':
     dependencies:
-      '@vitest/mocker': 4.0.15(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2))
+      '@vitest/mocker': 4.0.15(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2))
       '@vitest/utils': 4.0.15
       magic-string: 0.30.21
       pixelmatch: 7.1.0
       pngjs: 7.0.0
       sirv: 3.0.2
       tinyrainbow: 3.0.3
-      vitest: 4.0.15(@opentelemetry/api@1.9.0)(@types/node@24.10.1)(@vitest/browser-playwright@4.0.15)(happy-dom@20.0.11)(jiti@2.4.2)(lightningcss@1.29.2)
+      vitest: 4.0.15(@opentelemetry/api@1.9.0)(@types/node@24.10.2)(@vitest/browser-playwright@4.0.15)(happy-dom@20.0.11)(jiti@2.4.2)(lightningcss@1.29.2)
       ws: 8.18.3(bufferutil@4.0.9)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - bufferutil
@@ -4885,13 +4885,13 @@ snapshots:
       chai: 6.2.1
       tinyrainbow: 3.0.3
 
-  '@vitest/mocker@4.0.15(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2))':
+  '@vitest/mocker@4.0.15(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2))':
     dependencies:
       '@vitest/spy': 4.0.15
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2)
+      vite: 7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2)
 
   '@vitest/pretty-format@4.0.15':
     dependencies:
@@ -5594,7 +5594,7 @@ snapshots:
 
   happy-dom@20.0.11:
     dependencies:
-      '@types/node': 20.19.25
+      '@types/node': 20.19.26
       '@types/whatwg-mimetype': 3.0.2
       whatwg-mimetype: 3.0.0
 
@@ -6559,13 +6559,13 @@ snapshots:
       - zod
     optional: true
 
-  vite-node@3.2.4(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2):
+  vite-node@3.2.4(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2):
     dependencies:
       cac: 6.7.14
       debug: 4.4.3
       es-module-lexer: 1.7.0
       pathe: 2.0.3
-      vite: 7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2)
+      vite: 7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -6580,18 +6580,18 @@ snapshots:
       - tsx
       - yaml
 
-  vite-tsconfig-paths@5.1.4(typescript@5.9.3)(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2)):
+  vite-tsconfig-paths@5.1.4(typescript@5.9.3)(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2)):
     dependencies:
       debug: 4.4.3
       globrex: 0.1.2
       tsconfck: 3.1.6(typescript@5.9.3)
     optionalDependencies:
-      vite: 7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2)
+      vite: 7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2):
+  vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2):
     dependencies:
       esbuild: 0.25.12
       fdir: 6.5.0(picomatch@4.0.3)
@@ -6600,7 +6600,7 @@ snapshots:
       rollup: 4.53.3
       tinyglobby: 0.2.15
     optionalDependencies:
-      '@types/node': 24.10.1
+      '@types/node': 24.10.2
       fsevents: 2.3.3
       jiti: 2.4.2
       lightningcss: 1.29.2
@@ -6609,15 +6609,15 @@ snapshots:
     dependencies:
       react: 19.2.1
       react-dom: 19.2.1(react@19.2.1)
-      vitest: 4.0.15(@opentelemetry/api@1.9.0)(@types/node@24.10.1)(@vitest/browser-playwright@4.0.15)(happy-dom@20.0.11)(jiti@2.4.2)(lightningcss@1.29.2)
+      vitest: 4.0.15(@opentelemetry/api@1.9.0)(@types/node@24.10.2)(@vitest/browser-playwright@4.0.15)(happy-dom@20.0.11)(jiti@2.4.2)(lightningcss@1.29.2)
     optionalDependencies:
       '@types/react': 19.2.7
       '@types/react-dom': 19.2.3(@types/react@19.2.7)
 
-  vitest@4.0.15(@opentelemetry/api@1.9.0)(@types/node@24.10.1)(@vitest/browser-playwright@4.0.15)(happy-dom@20.0.11)(jiti@2.4.2)(lightningcss@1.29.2):
+  vitest@4.0.15(@opentelemetry/api@1.9.0)(@types/node@24.10.2)(@vitest/browser-playwright@4.0.15)(happy-dom@20.0.11)(jiti@2.4.2)(lightningcss@1.29.2):
     dependencies:
       '@vitest/expect': 4.0.15
-      '@vitest/mocker': 4.0.15(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2))
+      '@vitest/mocker': 4.0.15(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2))
       '@vitest/pretty-format': 4.0.15
       '@vitest/runner': 4.0.15
       '@vitest/snapshot': 4.0.15
@@ -6634,12 +6634,12 @@ snapshots:
       tinyexec: 1.0.2
       tinyglobby: 0.2.15
       tinyrainbow: 3.0.3
-      vite: 7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2)
+      vite: 7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2)
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@opentelemetry/api': 1.9.0
-      '@types/node': 24.10.1
-      '@vitest/browser-playwright': 4.0.15(bufferutil@4.0.9)(playwright@1.57.0)(utf-8-validate@5.0.10)(vite@7.2.7(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2))(vitest@4.0.15)
+      '@types/node': 24.10.2
+      '@vitest/browser-playwright': 4.0.15(bufferutil@4.0.9)(playwright@1.57.0)(utf-8-validate@5.0.10)(vite@7.2.7(@types/node@24.10.2)(jiti@2.4.2)(lightningcss@1.29.2))(vitest@4.0.15)
       happy-dom: 20.0.11
     transitivePeerDependencies:
       - jiti
