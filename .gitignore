@@ -175,3 +175,8 @@ dist
 .dev.vars
 
 .wrangler
+
+# Stryker mutation testing
+
+stryker-tmp/
+reports/
