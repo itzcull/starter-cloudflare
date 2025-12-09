@@ -1,0 +1,40 @@
+name: CI Tests
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - name: Build Velite Content
+        run: bunx velite build
+      - name: Run Unit Tests
+        run: bun run test
+
+  lint:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - name: Run CI checks (lint/format)
+        run: bun run ci
+
+  build:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - name: Build Velite Content
+        run: bunx velite build
+      - name: Check build
+        run: bun run build
