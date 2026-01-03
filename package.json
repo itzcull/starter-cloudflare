@@ -54,7 +54,7 @@
 		"wrangler": "^4.53.0"
 	},
 	"dependencies": {
-		"agents": "^0.2.30",
+		"agents": "^0.3.0",
 		"better-auth": "^1.4.5",
 		"drizzle-orm": "^0.45.0",
 		"hono": "^4.10.7",
