@@ -41,7 +41,7 @@
 		"@types/react": "^19.2.7",
 		"@types/react-dom": "^19.2.3",
 		"@vitejs/plugin-react": "^5.1.2",
-		"@vitest/browser-playwright": "^4.0.15",
+		"@vitest/browser-playwright": "^4.0.16",
 		"drizzle-kit": "^0.31.8",
 		"happy-dom": "^20.0.11",
 		"lefthook": "^2.0.13",
