@@ -60,7 +60,7 @@
 		"hono": "^4.11.3",
 		"postgres": "^3.4.7",
 		"react": "^19.2.3",
-		"react-dom": "^19.2.1",
+		"react-dom": "^19.2.3",
 		"react-router": "^7.11.0",
 		"reshaped": "^3.9.0"
 	},
