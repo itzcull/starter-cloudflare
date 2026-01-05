@@ -61,7 +61,7 @@
 		"postgres": "^3.4.7",
 		"react": "^19.2.1",
 		"react-dom": "^19.2.1",
-		"react-router": "^7.10.1",
+		"react-router": "^7.11.0",
 		"reshaped": "^3.8.9"
 	},
 	"peerDependencies": {
