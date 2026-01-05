@@ -51,7 +51,7 @@
 		"vite-tsconfig-paths": "^6.0.0",
 		"vitest": "^4.0.15",
 		"vitest-browser-react": "^2.0.2",
-		"wrangler": "^4.53.0"
+		"wrangler": "^4.54.0"
 	},
 	"dependencies": {
 		"agents": "^0.3.0",
