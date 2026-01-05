@@ -29,7 +29,7 @@
 		"@cloudflare/vite-plugin": "^1.17.0",
 		"@edge-runtime/vm": "^5.0.0",
 		"@react-router/dev": "^7.11.0",
-		"@react-router/fs-routes": "^7.10.1",
+		"@react-router/fs-routes": "^7.11.0",
 		"@stryker-mutator/core": "^9.4.0",
 		"@stryker-mutator/typescript-checker": "^9.4.0",
 		"@stryker-mutator/vitest-runner": "^9.4.0",
