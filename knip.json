@@ -1,0 +1,6 @@
+{
+	"$schema": "https://unpkg.com/knip@5/schema.json",
+	"entry": ["src/app/routes/**/route.tsx"],
+	"project": ["src/**/*.{ts,tsx}", "test/**/*.ts"],
+	"ignore": ["worker-configuration.d.ts"]
+}

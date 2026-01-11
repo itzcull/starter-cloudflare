@@ -8,7 +8,7 @@ pre-commit:
   parallel: false
   jobs:
     - name: Linter, Formatter and Sort Imports
-      run: pnpm run fix {staged_files}
+      run: bun run fix {staged_files}
       stage_fixed: true
       glob:
         # TypeScript files
@@ -26,3 +26,12 @@ pre-commit:
         # Other files
         - '**/*.json'
         - '**/*.css'
+
+    - name: Knip - Check for unused code
+      run: bun run knip
+      glob:
+        - '**/*.ts'
+        - '**/*.tsx'
+        - '**/*.js'
+        - '**/*.jsx'
+        - 'package.json'
