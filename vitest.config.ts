@@ -25,29 +25,11 @@ export default defineConfig({
 				}
 			},
 			{
-				plugins: [react(), tsconfigPaths()],
-				test: {
-					name: 'react',
-					include: ['**/*.react.test.{ts,tsx}'],
-					exclude: defaultExclude,
-					globals: true,
-					environment: 'happy-dom',
-					setupFiles: ['./vitest.setup.ts'],
-					css: true
-				}
-			},
-			{
 				plugins: [tsconfigPaths()],
 				test: {
-					name: 'bare',
-					include: ['**/*.test.{ts,tsx}'],
-					exclude: [
-						...defaultExclude,
-						'**/*.browser.test.{ts,tsx}',
-						'**/*.react.test.{ts,tsx}',
-						'**/*.worker.test.{ts,tsx}',
-						'**/*.integration.test.{ts,tsx}'
-					],
+					name: 'unit',
+					include: ['**/*.unit.test.{ts,tsx}'],
+					exclude: defaultExclude,
 					globals: true,
 					environment: 'node'
 				}
@@ -55,7 +37,7 @@ export default defineConfig({
 			{
 				plugins: [tsconfigPaths()],
 				test: {
-					name: 'cloudflare-worker',
+					name: 'worker',
 					include: ['**/*.worker.test.{ts,tsx}'],
 					exclude: defaultExclude,
 					globals: true,
