@@ -1,23 +1,23 @@
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "cloudflare-starter",
-	"main": "src/worker.ts",
-	"compatibility_date": "2025-03-21",
-	"compatibility_flags": ["nodejs_als", "nodejs_compat"],
-	"keep_vars": false,
-	"workers_dev": true,
-	"preview_urls": false,
-	"logpush": true,
-	"observability": {
-		"enabled": true
-	},
-	"hyperdrive": [
-		{
-			"binding": "HYPERDRIVE",
-			"id": "<HYPERDRIVE_ID>"
-		}
-	],
-	"vars": {
-		"BETTER_AUTH_SECRET": "placeholder"
-	}
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cloudflare-starter",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-03-21",
+  "compatibility_flags": ["nodejs_als", "nodejs_compat"],
+  "keep_vars": false,
+  "workers_dev": true,
+  "preview_urls": false,
+  "logpush": true,
+  "observability": {
+    "enabled": true,
+  },
+  "hyperdrive": [
+    {
+      "binding": "HYPERDRIVE",
+      "id": "<HYPERDRIVE_ID>",
+    },
+  ],
+  "vars": {
+    "BETTER_AUTH_SECRET": "placeholder",
+  },
 }

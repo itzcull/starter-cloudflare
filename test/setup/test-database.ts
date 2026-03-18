@@ -7,57 +7,57 @@ import * as schema from '../../src/db/schema'
 type TestDatabase = ReturnType<typeof drizzle<typeof schema>>
 
 type TestDatabaseContext = {
-	readonly container: StartedPostgreSqlContainer
-	readonly connectionString: string
-	readonly db: TestDatabase
-	readonly sqlClient: ReturnType<typeof postgres>
+  readonly container: StartedPostgreSqlContainer
+  readonly connectionString: string
+  readonly db: TestDatabase
+  readonly sqlClient: ReturnType<typeof postgres>
 }
 
 let containerInstance: StartedPostgreSqlContainer | null = null
 
 const startContainer = async (): Promise<StartedPostgreSqlContainer> => {
-	if (containerInstance) {
-		return containerInstance
-	}
+  if (containerInstance) {
+    return containerInstance
+  }
 
-	const container = await new PostgreSqlContainer('postgres:16-alpine')
-		.withDatabase('test_db')
-		.withUsername('test_user')
-		.withPassword('test_password')
-		.start()
+  const container = await new PostgreSqlContainer('postgres:16-alpine')
+    .withDatabase('test_db')
+    .withUsername('test_user')
+    .withPassword('test_password')
+    .start()
 
-	containerInstance = container
-	return container
+  containerInstance = container
+  return container
 }
 
 const stopContainer = async (): Promise<void> => {
-	if (containerInstance) {
-		await containerInstance.stop()
-		containerInstance = null
-	}
+  if (containerInstance) {
+    await containerInstance.stop()
+    containerInstance = null
+  }
 }
 
 const createTestDatabase = async (): Promise<TestDatabaseContext> => {
-	const container = await startContainer()
-	const connectionString = container.getConnectionUri()
+  const container = await startContainer()
+  const connectionString = container.getConnectionUri()
 
-	const sqlClient = postgres(connectionString, {
-		max: 5,
-		fetch_types: false
-	})
+  const sqlClient = postgres(connectionString, {
+    max: 5,
+    fetch_types: false,
+  })
 
-	const db = drizzle(sqlClient, { schema })
+  const db = drizzle(sqlClient, { schema })
 
-	return {
-		container,
-		connectionString,
-		db,
-		sqlClient
-	}
+  return {
+    container,
+    connectionString,
+    db,
+    sqlClient,
+  }
 }
 
 const pushSchema = async (db: TestDatabase): Promise<void> => {
-	await db.execute(sql`
+  await db.execute(sql`
     CREATE TABLE IF NOT EXISTS "user" (
       "id" TEXT PRIMARY KEY,
       "name" TEXT NOT NULL,
@@ -69,7 +69,7 @@ const pushSchema = async (db: TestDatabase): Promise<void> => {
     )
   `)
 
-	await db.execute(sql`
+  await db.execute(sql`
     CREATE TABLE IF NOT EXISTS "session" (
       "id" TEXT PRIMARY KEY,
       "expires_at" TIMESTAMP NOT NULL,
@@ -82,7 +82,7 @@ const pushSchema = async (db: TestDatabase): Promise<void> => {
     )
   `)
 
-	await db.execute(sql`
+  await db.execute(sql`
     CREATE TABLE IF NOT EXISTS "account" (
       "id" TEXT PRIMARY KEY,
       "account_id" TEXT NOT NULL,
@@ -100,7 +100,7 @@ const pushSchema = async (db: TestDatabase): Promise<void> => {
     )
   `)
 
-	await db.execute(sql`
+  await db.execute(sql`
     CREATE TABLE IF NOT EXISTS "verification" (
       "id" TEXT PRIMARY KEY,
       "identifier" TEXT NOT NULL,
@@ -113,20 +113,20 @@ const pushSchema = async (db: TestDatabase): Promise<void> => {
 }
 
 const truncateAllTables = async (db: TestDatabase): Promise<void> => {
-	await db.execute(sql`TRUNCATE TABLE "session", "account", "verification", "user" CASCADE`)
+  await db.execute(sql`TRUNCATE TABLE "session", "account", "verification", "user" CASCADE`)
 }
 
 const closeConnection = async (sqlClient: ReturnType<typeof postgres>): Promise<void> => {
-	await sqlClient.end()
+  await sqlClient.end()
 }
 
 export {
-	startContainer,
-	stopContainer,
-	createTestDatabase,
-	pushSchema,
-	truncateAllTables,
-	closeConnection,
-	type TestDatabase,
-	type TestDatabaseContext
+  startContainer,
+  stopContainer,
+  createTestDatabase,
+  pushSchema,
+  truncateAllTables,
+  closeConnection,
+  type TestDatabase,
+  type TestDatabaseContext,
 }

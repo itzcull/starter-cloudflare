@@ -5,25 +5,22 @@ import { SystemThemeScript } from './components/system-theme-script'
 import 'reshaped/themes/slate/theme.css'
 
 export function Layout({ children }: PropsWithChildren<unknown>) {
-	return (
-		<html lang="en">
-			<head>
-				<link
-					rel="icon"
-					href="/favicon.ico"
-				/>
-				<Meta />
-				<Links />
-			</head>
-			<body>
-				<Reshaped theme="slate">{children}</Reshaped>
-				<Scripts />
-				<SystemThemeScript />
-			</body>
-		</html>
-	)
+  return (
+    <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        <Reshaped theme="slate">{children}</Reshaped>
+        <Scripts />
+        <SystemThemeScript />
+      </body>
+    </html>
+  )
 }
 
 export default function App() {
-	return <Outlet />
+  return <Outlet />
 }
