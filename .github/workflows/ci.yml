@@ -5,44 +5,72 @@ on:
     branches: [master]
 
 jobs:
-  test:
-    if: false
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: voidzero-dev/setup-vp@v1
       - run: vp install --frozen-lockfile
-      - name: Run Unit Tests
-        run: vp test
+      - name: Lint and unused code detection
+        run: vp check && vp run knip
+
+  test-unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: voidzero-dev/setup-vp@v1
+      - run: vp install --frozen-lockfile
+      - name: Run unit tests
+        run: vp test --project unit
+
+  test-browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: voidzero-dev/setup-vp@v1
+      - run: vp install --frozen-lockfile
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+      - name: Run browser tests
+        run: vp test --project browser
+
+  test-worker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: voidzero-dev/setup-vp@v1
+      - run: vp install --frozen-lockfile
+      - name: Run worker tests
+        run: vp test --project worker
 
   test-integration:
-    if: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: voidzero-dev/setup-vp@v1
       - run: vp install --frozen-lockfile
-      - name: Run Integration Tests
+      - name: Run integration tests
         run: vp test --project integration
         env:
           TESTCONTAINERS_RYUK_DISABLED: 'true'
 
-  lint:
-    if: false
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - uses: voidzero-dev/setup-vp@v1
-      - run: vp install --frozen-lockfile
-      - name: Run CI checks (lint/format)
-        run: vp check && vp run knip
-
   build:
-    if: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: voidzero-dev/setup-vp@v1
       - run: vp install --frozen-lockfile
-      - name: Check build
+      - name: Build
         run: vp build
+
+  test-e2e:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: voidzero-dev/setup-vp@v1
+      - run: vp install --frozen-lockfile
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+      - name: Run e2e tests
+        run: npx playwright test
