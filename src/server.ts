@@ -23,7 +23,7 @@ export default {
       return authResponse
     }
 
-    return handler.fetch(request, env, ctx)
+    return handler.fetch(request)
   },
   queue(batch: MessageBatch<{ message: string }>) {
     for (const message of batch.messages) {
