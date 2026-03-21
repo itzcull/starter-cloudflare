@@ -1,30 +1,7 @@
-import handler from '@tanstack/react-start/server-entry'
-import { createAuth } from './auth/server'
-
-const handleAuth = async (request: Request, env: Cloudflare.Env): Promise<Response | null> => {
-  const url = new URL(request.url)
-  if (!url.pathname.startsWith('/api/auth')) {
-    return null
-  }
-
-  const auth = createAuth({
-    connectionString: env.HYPERDRIVE.connectionString,
-    baseUrl: url.origin,
-    secret: env.BETTER_AUTH_SECRET,
-  })
-
-  return auth.handler(request)
-}
+import { app } from './app'
 
 export default {
-  async fetch(request: Request, env: Cloudflare.Env, _ctx: ExecutionContext) {
-    const authResponse = await handleAuth(request, env)
-    if (authResponse) {
-      return authResponse
-    }
-
-    return handler.fetch(request)
-  },
+  fetch: app.fetch,
   queue(batch: MessageBatch<{ message: string }>) {
     for (const message of batch.messages) {
       console.log(message)
