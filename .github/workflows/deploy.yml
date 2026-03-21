@@ -1,8 +1,14 @@
+# TODO: Remove this workflow_dispatch override and uncomment the push trigger
+# when you're ready to deploy to Cloudflare. You'll need to set the following
+# secrets in your GitHub repository settings:
+#   - CLOUDFLARE_ACCOUNT_ID
+#   - CLOUDFLARE_API_TOKEN
 name: Deploy
 
 on:
-  push:
-    branches: [master]
+  workflow_dispatch: {}
+  # push:
+  #   branches: [master]
 
 concurrency:
   group: production-deploy
