@@ -1,15 +1,21 @@
 import react from '@vitejs/plugin-react'
 import { playwright } from 'vite-plus/test/browser-playwright'
-import tsconfigPaths from 'vite-tsconfig-paths'
 import { defineConfig } from 'vite-plus'
 
 const defaultExclude = ['**/node_modules/**', '**/dist/**', '**/.{git,cache,output,temp}/**']
 
 export default defineConfig({
+  resolve: {
+    tsconfigPaths: true,
+  },
+
   test: {
     projects: [
       {
-        plugins: [react(), tsconfigPaths()],
+        plugins: [react()],
+        resolve: {
+          tsconfigPaths: true,
+        },
         test: {
           name: 'browser',
           include: ['**/*.browser.test.{ts,tsx}'],
@@ -25,7 +31,9 @@ export default defineConfig({
         },
       },
       {
-        plugins: [tsconfigPaths()],
+        resolve: {
+          tsconfigPaths: true,
+        },
         test: {
           name: 'unit',
           include: ['**/*.unit.test.{ts,tsx}'],
@@ -35,7 +43,9 @@ export default defineConfig({
         },
       },
       {
-        plugins: [tsconfigPaths()],
+        resolve: {
+          tsconfigPaths: true,
+        },
         test: {
           name: 'worker',
           include: ['**/*.worker.test.{ts,tsx}'],
@@ -45,7 +55,9 @@ export default defineConfig({
         },
       },
       {
-        plugins: [tsconfigPaths()],
+        resolve: {
+          tsconfigPaths: true,
+        },
         test: {
           name: 'integration',
           include: ['**/*.integration.test.{ts,tsx}'],

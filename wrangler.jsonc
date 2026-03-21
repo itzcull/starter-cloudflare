@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "cloudflare-starter",
-  "main": "src/worker.ts",
+  "main": "src/server.ts",
   "compatibility_date": "2025-03-21",
   "compatibility_flags": ["nodejs_als", "nodejs_compat"],
   "keep_vars": false,

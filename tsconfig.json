@@ -35,5 +35,5 @@
     "noFallthroughCasesInSwitch": true
   },
   "exclude": ["node_modules", "dist", "build"],
-  "include": ["**/*", ".react-router/**/*"]
+  "include": ["**/*", "src/routeTree.gen.ts"]
 }
