@@ -24,6 +24,9 @@ importers:
       drizzle-orm:
         specifier: ^0.45.1
         version: 0.45.1(@cloudflare/workers-types@4.20260317.1)(@opentelemetry/api@1.9.0)(kysely@0.28.12)(postgres@3.4.8)
+      hono:
+        specifier: ^4.12.8
+        version: 4.12.8
       postgres:
         specifier: ^3.4.7
         version: 3.4.8
@@ -3136,6 +3139,10 @@ packages:
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
+
+  hono@4.12.8:
+    resolution: {integrity: sha512-VJCEvtrezO1IAR+kqEYnxUOoStaQPGrCmX3j4wDTNOcD1uRPFpGlwQUIW8niPuvHXaTUxeOUl5MMDGrl+tmO9A==}
+    engines: {node: '>=16.9.0'}
 
   htmlparser2@10.1.0:
     resolution: {integrity: sha512-VTZkM9GWRAtEpveh7MSF6SjjrpNVNNVJfFup7xTY3UpFtm67foy9HDVXneLtFVt4pMz5kZtgNcvCniNFb1hlEQ==}
@@ -6981,6 +6988,8 @@ snapshots:
   hasown@2.0.2:
     dependencies:
       function-bind: 1.1.2
+
+  hono@4.12.8: {}
 
   htmlparser2@10.1.0:
     dependencies:
