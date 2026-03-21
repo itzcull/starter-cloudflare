@@ -1,12 +1,10 @@
 import { cloudflare } from '@cloudflare/vite-plugin'
-import { reactRouter } from '@react-router/dev/vite'
+import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite-plus'
-import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
   plugins: [
-    react(),
     cloudflare({
       viteEnvironment: {
         name: 'ssr',
@@ -16,12 +14,16 @@ export default defineConfig({
         path: './.wrangler/state',
       },
     }),
-    reactRouter(),
-    tsconfigPaths(),
+    tanstackStart(),
+    react(),
   ],
 
+  resolve: {
+    tsconfigPaths: true,
+  },
+
   lint: {
-    ignorePatterns: ['dist/**', 'worker-configuration.d.ts'],
+    ignorePatterns: ['dist/**', 'worker-configuration.d.ts', 'src/routeTree.gen.ts'],
     options: {
       typeAware: true,
       typeCheck: true,
@@ -29,7 +31,7 @@ export default defineConfig({
   },
 
   fmt: {
-    ignorePatterns: ['dist/**'],
+    ignorePatterns: ['dist/**', 'src/routeTree.gen.ts'],
     singleQuote: true,
     semi: false,
   },

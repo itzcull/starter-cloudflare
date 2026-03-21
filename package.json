@@ -1,7 +1,7 @@
 {
   "name": "starter-cloudflare",
   "type": "module",
-  "module": "src/worker.ts",
+  "module": "src/server.ts",
   "scripts": {
     "deploy": "wrangler deploy",
     "dev": "vp dev",
@@ -27,13 +27,13 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@tanstack/react-router": "^1.114.3",
+    "@tanstack/react-start": "^1.166.18",
     "better-auth": "^1.4.10",
     "drizzle-orm": "^0.45.1",
-    "hono": "^4.11.3",
     "postgres": "^3.4.7",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "react-router": "^7.11.0",
     "reshaped": "^3.9.0"
   },
   "devDependencies": {
@@ -41,8 +41,6 @@
     "@csstools/postcss-global-data": "^4.0.0",
     "@edge-runtime/vm": "^5.0.0",
     "@playwright/test": "^1.51.0",
-    "@react-router/dev": "^7.11.0",
-    "@react-router/fs-routes": "^7.11.0",
     "@stryker-mutator/core": "^9.5.1",
     "@stryker-mutator/typescript-checker": "^9.5.1",
     "@stryker-mutator/vitest-runner": "^9.5.1",
@@ -64,7 +62,6 @@
     "typescript": "^5.9.3",
     "vite": "npm:@voidzero-dev/vite-plus-core@latest",
     "vite-plus": "latest",
-    "vite-tsconfig-paths": "^6.0.0",
     "vitest": "npm:@voidzero-dev/vite-plus-test@latest",
     "vitest-browser-react": "^2.0.2",
     "wrangler": "^4.54.0"
