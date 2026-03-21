@@ -20,9 +20,6 @@
     "target": "esnext",
     "module": "esnext",
     "jsx": "react-jsx",
-    "paths": {
-      "@cf-utils/*": ["./src/cf-utils/*"]
-    },
     "types": ["vite/client"],
     "strict": true,
     "noImplicitAny": true,
