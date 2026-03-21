@@ -8,7 +8,6 @@
     "test": "vp test",
     "test:browser": "vp test --project browser",
     "test:unit": "vp test --project unit",
-    "test:worker": "vp test --project worker",
     "test:integration": "vp test --project integration",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",

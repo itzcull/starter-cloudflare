@@ -34,15 +34,6 @@ jobs:
       - name: Run browser tests
         run: vp test --project browser
 
-  test-worker:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - uses: voidzero-dev/setup-vp@v1
-      - run: vp install --frozen-lockfile
-      - name: Run worker tests
-        run: vp test --project worker --passWithNoTests
-
   test-integration:
     runs-on: ubuntu-latest
     steps:
