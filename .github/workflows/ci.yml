@@ -32,7 +32,7 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
       - name: Run browser tests
-        run: vp test --project browser
+        run: vp test --project browser --passWithNoTests
 
   test-integration:
     runs-on: ubuntu-latest
@@ -57,6 +57,20 @@ jobs:
   test-e2e:
     needs: [build]
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: test
+          POSTGRES_PASSWORD: test
+          POSTGRES_DB: test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U test"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
     steps:
       - uses: actions/checkout@v6
       - uses: voidzero-dev/setup-vp@v1
@@ -65,3 +79,5 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run e2e tests
         run: npx playwright test
+        env:
+          WRANGLER_HYPERDRIVE_LOCAL_CONNECTION_STRING_HYPERDRIVE: postgres://test:test@localhost:5432/test

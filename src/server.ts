@@ -17,7 +17,7 @@ const handleAuth = async (request: Request, env: Cloudflare.Env): Promise<Respon
 }
 
 export default {
-  async fetch(request: Request, env: Cloudflare.Env, ctx: ExecutionContext) {
+  async fetch(request: Request, env: Cloudflare.Env, _ctx: ExecutionContext) {
     const authResponse = await handleAuth(request, env)
     if (authResponse) {
       return authResponse
