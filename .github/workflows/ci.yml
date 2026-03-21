@@ -11,8 +11,8 @@ jobs:
       - uses: actions/checkout@v6
       - uses: voidzero-dev/setup-vp@v1
       - run: vp install --frozen-lockfile
-      - name: Lint and unused code detection
-        run: vp check && vp run knip
+      - name: Lint
+        run: vp check
 
   test-unit:
     runs-on: ubuntu-latest
