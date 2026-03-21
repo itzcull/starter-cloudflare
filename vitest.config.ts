@@ -47,18 +47,6 @@ export default defineConfig({
           tsconfigPaths: true,
         },
         test: {
-          name: 'worker',
-          include: ['**/*.worker.test.{ts,tsx}'],
-          exclude: defaultExclude,
-          globals: true,
-          environment: 'edge-runtime',
-        },
-      },
-      {
-        resolve: {
-          tsconfigPaths: true,
-        },
-        test: {
           name: 'integration',
           include: ['**/*.integration.test.{ts,tsx}'],
           exclude: defaultExclude,
