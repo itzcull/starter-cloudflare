@@ -15,6 +15,7 @@
     {
       "binding": "HYPERDRIVE",
       "id": "<HYPERDRIVE_ID>",
+      "localConnectionString": "postgresql://local:local@localhost:5432/cloudflare-starter",
     },
   ],
   "vars": {
