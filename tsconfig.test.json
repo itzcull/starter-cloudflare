@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["vite/client", "vite-plus/test/globals"]
+  },
+  "include": ["**/*.test.ts", "**/*.test.tsx"]
+}
