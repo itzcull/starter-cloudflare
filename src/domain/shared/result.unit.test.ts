@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vite-plus/test'
 import { ok, err, type Result } from './result'
 
 describe('Result', () => {
