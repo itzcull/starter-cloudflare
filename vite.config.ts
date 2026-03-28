@@ -14,7 +14,13 @@ export default defineConfig({
         path: './.wrangler/state',
       },
     }),
-    tanstackStart(),
+    tanstackStart({
+      router: {
+        entry: 'webapp/router',
+        routesDirectory: 'webapp/routes',
+        generatedRouteTree: 'webapp/routeTree.gen.ts',
+      },
+    }),
     react(),
   ],
 
@@ -23,7 +29,7 @@ export default defineConfig({
   },
 
   lint: {
-    ignorePatterns: ['dist/**', 'worker-configuration.d.ts', 'src/routeTree.gen.ts'],
+    ignorePatterns: ['dist/**', 'worker-configuration.d.ts', 'src/webapp/routeTree.gen.ts'],
     options: {
       typeAware: true,
       typeCheck: true,
@@ -31,7 +37,7 @@ export default defineConfig({
   },
 
   fmt: {
-    ignorePatterns: ['dist/**', 'src/routeTree.gen.ts'],
+    ignorePatterns: ['dist/**', 'src/webapp/routeTree.gen.ts'],
     singleQuote: true,
     semi: false,
   },

@@ -2,7 +2,7 @@ import { PostgreSqlContainer, type StartedPostgreSqlContainer } from '@testconta
 import { sql } from 'drizzle-orm'
 import { drizzle } from 'drizzle-orm/postgres-js'
 import postgres from 'postgres'
-import * as schema from '../../src/db/schema'
+import * as schema from '../../src/infra/drizzle/schema'
 
 type TestDatabase = ReturnType<typeof drizzle<typeof schema>>
 

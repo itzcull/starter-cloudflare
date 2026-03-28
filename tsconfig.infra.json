@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "paths": {
+      "@domain/*": ["./src/domain/*"],
+      "@infra/*": ["./src/infra/*"]
+    }
+  },
+  "include": ["src/domain/**/*", "src/infra/**/*"],
+  "exclude": ["node_modules", "dist", "build", "**/*.test.ts"]
+}

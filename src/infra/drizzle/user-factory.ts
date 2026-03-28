@@ -1,4 +1,4 @@
-import type { NewAccount, NewSession, NewUser, NewVerification } from '../../src/db/types'
+import type { NewAccount, NewSession, NewUser, NewVerification } from './types'
 
 type UserOverrides = Partial<NewUser>
 type SessionOverrides = Partial<NewSession>

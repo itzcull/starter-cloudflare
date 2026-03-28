@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from 'vite-plus/test'
 
 const mockAuthHandler = vi.fn<(request: Request) => Promise<Response>>()
 
-vi.mock('./auth/server', () => ({
+vi.mock('@infra/better-auth/auth-adapter', () => ({
   createAuth: () => ({
     handler: mockAuthHandler,
   }),
