@@ -1,6 +1,11 @@
 {
   "$schema": "https://unpkg.com/knip@6/schema.json",
-  "entry": ["src/routes/**/*.{ts,tsx}", "src/router.tsx", "src/server.ts", "e2e/**/*.e2e.test.ts"],
+  "entry": [
+    "src/webapp/routes/**/*.{ts,tsx}",
+    "src/webapp/router.tsx",
+    "src/server.ts",
+    "e2e/**/*.e2e.test.ts"
+  ],
   "project": ["src/**/*.{ts,tsx}", "test/**/*.ts", "e2e/**/*.ts"],
-  "ignore": ["worker-configuration.d.ts", "src/routeTree.gen.ts"]
+  "ignore": ["worker-configuration.d.ts", "src/webapp/routeTree.gen.ts"]
 }

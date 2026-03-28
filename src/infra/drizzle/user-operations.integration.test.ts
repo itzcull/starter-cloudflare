@@ -2,9 +2,9 @@ import { eq } from 'drizzle-orm'
 import { drizzle } from 'drizzle-orm/postgres-js'
 import postgres from 'postgres'
 import { afterAll, afterEach, beforeAll, describe, expect, inject, it } from 'vite-plus/test'
-import * as schema from '../../../src/db/schema'
-import { createTestSession, createTestUser } from '../../factories/user-factory'
-import { truncateAllTables } from '../../setup/test-database'
+import * as schema from '@infra/drizzle/schema'
+import { createTestSession, createTestUser } from './user-factory'
+import { truncateAllTables } from '../../../test/setup/test-database'
 
 describe('User database operations', () => {
   let db: ReturnType<typeof drizzle<typeof schema>>

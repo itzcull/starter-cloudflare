@@ -1,7 +1,7 @@
 import { betterAuth } from 'better-auth'
 import { drizzleAdapter } from 'better-auth/adapters/drizzle'
-import { createDatabase } from '../db/client'
-import * as schema from '../db/schema'
+import { createDatabase } from '@infra/drizzle/client'
+import * as schema from '@infra/drizzle/schema'
 
 type CreateAuthOptions = {
   readonly connectionString: string

@@ -1,6 +1,6 @@
 import { Hono } from 'hono'
 import handler from '@tanstack/react-start/server-entry'
-import { createAuth } from './auth/server'
+import { createAuth } from '@infra/better-auth/auth-adapter'
 
 type AppBindings = {
   Bindings: Cloudflare.Env

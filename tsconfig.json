@@ -32,8 +32,12 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@domain/*": ["./src/domain/*"],
+      "@infra/*": ["./src/infra/*"]
+    }
   },
   "exclude": ["node_modules", "dist", "build"],
-  "include": ["**/*", "src/routeTree.gen.ts"]
+  "include": ["**/*", "src/webapp/routeTree.gen.ts"]
 }

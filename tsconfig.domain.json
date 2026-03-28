@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "paths": {
+      "@domain/*": ["./src/domain/*"]
+    }
+  },
+  "include": ["src/domain/**/*"],
+  "exclude": ["node_modules", "dist", "build"]
+}
