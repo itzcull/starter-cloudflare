@@ -4,29 +4,30 @@
   "module": "src/server.ts",
   "scripts": {
     "deploy": "wrangler deploy",
-    "dev": "vp dev",
-    "test": "vp test",
-    "test:browser": "vp test --project browser",
-    "test:unit": "vp test --project unit",
-    "test:integration": "vp test --project integration",
+    "dev": "vite dev",
+    "test": "vitest",
+    "test:browser": "vitest --project browser",
+    "test:unit": "vitest --project unit",
+    "test:integration": "vitest --project integration",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:mutate": "stryker run",
-    "build": "vp build",
-    "preview": "vp preview",
+    "build": "vite build",
+    "preview": "vite preview",
     "typegen": "wrangler types",
-    "lint": "vp check --fix",
-    "format": "vp fmt",
+    "lint": "oxlint --fix",
+    "format": "oxfmt --write .",
     "typecheck:domain": "tsc --noEmit -p tsconfig.domain.json",
     "typecheck:infra": "tsc --noEmit -p tsconfig.infra.json",
     "typecheck:layers": "tsc --noEmit -p tsconfig.domain.json && tsc --noEmit -p tsconfig.infra.json",
-    "ci": "vp check && knip && pnpm typecheck:layers",
+    "ci": "oxlint && oxfmt --check . && knip && pnpm typecheck:layers",
     "knip": "DATABASE_URL=postgres://knip:knip@localhost:5432/knip knip",
-    "fix": "vp check --fix",
+    "fix": "oxlint --fix",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
     "db:migrate": "drizzle-kit migrate",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "prepare": "simple-git-hooks"
   },
   "dependencies": {
     "@tanstack/react-router": "^1.114.3",
@@ -55,29 +56,38 @@
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.0",
+    "@vitest/browser": "^4.1.2",
+    "@vitest/browser-playwright": "^4.1.2",
     "@vitest/coverage-v8": "^4.1.2",
     "cssnano": "^7.1.3",
     "drizzle-kit": "^0.31.8",
     "happy-dom": "^20.0.11",
     "jiti": "^2.6.1",
     "knip": "^6.0.1",
+    "lint-staged": "^16.4.0",
+    "oxfmt": "^0.43.0",
+    "oxlint": "^1.58.0",
+    "oxlint-tsgolint": "^0.19.0",
     "postcss-custom-media": "^12.0.1",
+    "simple-git-hooks": "^2.13.1",
     "testcontainers": "^11.11.0",
     "typescript": "^5.9.3",
-    "vite": "npm:@voidzero-dev/vite-plus-core@latest",
-    "vite-plus": "latest",
-    "vitest": "npm:@voidzero-dev/vite-plus-test@latest",
-    "vitest-browser-react": "^2.0.2",
+    "vite": "^8.0.3",
+    "vitest": "^4.1.2",
+    "vitest-browser-react": "^2.1.0",
     "wrangler": "^4.76.0"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
-  "packageManager": "pnpm@10.32.1",
-  "pnpm": {
-    "overrides": {
-      "vite": "npm:@voidzero-dev/vite-plus-core@latest",
-      "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
-    }
-  }
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,jsx,mjs,cjs,json,css}": [
+      "oxlint --fix",
+      "oxfmt --write"
+    ]
+  },
+  "packageManager": "pnpm@10.32.1"
 }

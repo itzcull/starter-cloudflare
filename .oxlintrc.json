@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "ignorePatterns": ["dist/**", "worker-configuration.d.ts", "src/webapp/routeTree.gen.ts"],
+  "options": {
+    "typeAware": true,
+    "typeCheck": true
+  }
+}

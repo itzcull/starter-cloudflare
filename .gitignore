@@ -176,6 +176,10 @@ dist
 
 .wrangler
 
+# Vite hooks (legacy)
+
+.vite-hooks/
+
 # Stryker mutation testing
 
 stryker-tmp/
