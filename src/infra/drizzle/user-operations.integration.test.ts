@@ -1,7 +1,7 @@
 import { eq } from 'drizzle-orm'
 import { drizzle } from 'drizzle-orm/postgres-js'
 import postgres from 'postgres'
-import { afterAll, afterEach, beforeAll, describe, expect, inject, it } from 'vite-plus/test'
+import { afterAll, afterEach, beforeAll, describe, expect, inject, it } from 'vitest'
 import * as schema from '@infra/drizzle/schema'
 import { createTestSession, createTestUser } from './user-factory'
 import { truncateAllTables } from '../../../test/setup/test-database'

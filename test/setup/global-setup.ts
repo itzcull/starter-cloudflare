@@ -1,7 +1,7 @@
-import type { TestProject } from 'vite-plus/test/node'
+import type { TestProject } from 'vitest/node'
 import { closeConnection, createTestDatabase, pushSchema, stopContainer } from './test-database'
 
-declare module 'vite-plus/test' {
+declare module 'vitest' {
   export interface ProvidedContext {
     testDatabaseConnectionString: string
   }
