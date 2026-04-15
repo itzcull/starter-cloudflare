@@ -35,7 +35,8 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@domain/*": ["./src/domain/*"],
-      "@infra/*": ["./src/infra/*"]
+      "@infra/*": ["./src/infra/*"],
+      "@theme": ["./src/webapp/theme"]
     }
   },
   "exclude": ["node_modules", "dist", "build"],
