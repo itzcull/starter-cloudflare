@@ -1,7 +1,5 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from '@tanstack/react-router'
-import { Reshaped } from 'reshaped'
-import { SystemThemeScript } from '../components/system-theme-script'
-import 'reshaped/themes/slate/theme.css'
+import { Provider } from '../components/ui/provider'
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -12,16 +10,15 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
       <body>
-        <Reshaped theme="slate">
+        <Provider>
           <Outlet />
-        </Reshaped>
+        </Provider>
         <Scripts />
-        <SystemThemeScript />
       </body>
     </html>
   )

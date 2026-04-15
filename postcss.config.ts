@@ -1,1 +1,3 @@
-export { config as default } from 'reshaped/config/postcss'
+export default {
+  plugins: {},
+}

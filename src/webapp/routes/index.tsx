@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Container, View } from 'reshaped'
+import { Box, Container } from '@chakra-ui/react'
 
 export const Route = createFileRoute('/')({
   component: Home,
@@ -7,11 +7,10 @@ export const Route = createFileRoute('/')({
 
 function Home() {
   return (
-    <Container align="center" justify="center">
-      <View backgroundColor="neutral-faded" maxWidth={256} width="100%" padding={4}>
+    <Container centerContent>
+      <Box bg="bg.subtle" maxW="256px" w="100%" p="4">
         <h1>Hello, World!</h1>
-      </View>
-      <View />
+      </Box>
     </Container>
   )
 }
