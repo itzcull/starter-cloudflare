@@ -23,7 +23,7 @@ This project uses **Vite 8**, **Vitest 4**, **oxlint**, **oxfmt**, and **pnpm** 
 
 - `pnpm lint` - Lint and auto-fix with oxlint
 - `pnpm format` - Format code with oxfmt
-- `pnpm ci` - Full CI check: lint, format, knip, and typecheck
+- `pnpm ci` - Full CI check: lint, format, and typecheck
 
 ### Dependencies
 
