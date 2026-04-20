@@ -99,6 +99,9 @@ importers:
       '@vitest/coverage-v8':
         specifier: ^4.1.2
         version: 4.1.2(@vitest/browser@4.1.2(vite@8.0.5(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@25.5.0)(esbuild@0.27.5)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.3))(vitest@4.1.2))(vitest@4.1.2)
+      acorn:
+        specifier: ^8.16.0
+        version: 8.16.0
       drizzle-kit:
         specifier: ^0.31.8
         version: 0.31.10
