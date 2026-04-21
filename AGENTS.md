@@ -35,8 +35,8 @@ This project uses **Vite 8**, **Vitest 4**, **oxlint**, **oxfmt**, and **pnpm** 
 
 - **Vite config**: `vite.config.ts` (plugins, resolve)
 - **Vitest config**: `vitest.config.ts` (test projects: unit, browser, integration)
-- **oxlint config**: `.oxlintrc.json` (type-aware linting, ignore patterns)
-- **oxfmt config**: `.oxfmtrc.json` (formatting: no semi, single quotes)
+- **oxlint config**: `oxlint.config.ts` (type-aware linting, ignore patterns)
+- **oxfmt config**: `oxfmt.config.ts` (formatting: no semi, single quotes)
 - **TypeScript**: `tsconfig.json` and layer-specific configs
 
 ## Imports

@@ -1,6 +1,6 @@
 # starter-cloudflare oxlint plugin
 
-Local oxlint JS plugin with architectural lint rules for this repo. Loaded via `jsPlugins` in `.oxlintrc.json`.
+Local oxlint JS plugin with architectural lint rules for this repo. Loaded via `jsPlugins` in `oxlint.config.ts`.
 
 ## Rules
 
@@ -10,7 +10,7 @@ Local oxlint JS plugin with architectural lint rules for this repo. Loaded via `
 
 1. Create `rules/<rule-name>.js` exporting `{ meta, create(context) }` (ESLint v9 compatible shape).
 2. Register it in `index.js` under `rules`.
-3. Enable it in `.oxlintrc.json` under `rules` (prefixed with `starter-cloudflare/`).
+3. Enable it in `oxlint.config.ts` under `rules` (prefixed with `starter-cloudflare/`).
 4. Drive the implementation with a co-located `rules/<rule-name>.unit.test.ts` using `test-utils/rule-tester.ts`.
 
 ## Constraints
