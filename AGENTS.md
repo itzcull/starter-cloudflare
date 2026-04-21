@@ -21,7 +21,7 @@ This project uses **Vite 8**, **Vitest 4**, **oxlint**, **oxfmt**, and **pnpm** 
 
 ### Code Quality
 
-- `pnpm lint` - Lint and auto-fix with oxlint
+- `pnpm lint` - Lint and auto-fix with oxlint (includes local `starter-cloudflare/*` JS plugin rules in `tools/oxlint-plugins/`)
 - `pnpm format` - Format code with oxfmt
 - `pnpm ci` - Full CI check: lint, format, and typecheck
 
