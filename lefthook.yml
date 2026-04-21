@@ -1,0 +1,17 @@
+pre-commit:
+  parallel: false
+  jobs:
+    - name: oxlint
+      glob: '*.{js,ts,tsx,jsx,mjs,cjs,json,css}'
+      run: pnpm oxlint --fix {staged_files} && git add {staged_files}
+    - name: oxfmt
+      glob: '*.{js,ts,tsx,jsx,mjs,cjs,json,css}'
+      run: pnpm oxfmt --write {staged_files} && git add {staged_files}
+    - name: vitest
+      glob: '*.{js,ts,tsx,jsx,mjs,cjs}'
+      run: pnpm vitest related --run --project unit --passWithNoTests {staged_files}
+
+pre-push:
+  jobs:
+    - name: vitest-changed
+      run: pnpm vitest run --changed origin/master --project unit
