@@ -47,9 +47,14 @@ This project uses **Vite 8**, **Vitest 4**, **oxlint**, **oxfmt**, and **pnpm** 
 - Import from `vitest/node` for node-specific test APIs
 - Import from `@vitest/browser-playwright` for browser test providers
 
-## Pre-commit Hooks
+## Git Hooks
 
-Pre-commit hooks are managed by `simple-git-hooks` and `lint-staged`. Staged files are automatically linted and formatted on commit.
+Git hooks are managed by [lefthook](https://lefthook.dev), configured in `lefthook.yml`.
+
+- **pre-commit** runs `oxlint --fix`, `oxfmt --write` on staged files (auto-restaged), then runs the unit test suite.
+- **pre-push** runs `vitest run --changed origin/master --project unit`, executing only the unit tests affected by files changed against `origin/master`.
+
+Hooks install automatically via the `prepare` script (`lefthook install`). To skip them for a single command, set `LEFTHOOK=0`.
 
 ## Review Checklist for Agents
 
