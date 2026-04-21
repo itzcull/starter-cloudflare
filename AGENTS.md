@@ -51,7 +51,7 @@ This project uses **Vite 8**, **Vitest 4**, **oxlint**, **oxfmt**, and **pnpm** 
 
 Git hooks are managed by [lefthook](https://lefthook.dev), configured in `lefthook.yml`.
 
-- **pre-commit** runs `oxlint --fix`, `oxfmt --write` on staged files (auto-restaged), then runs the unit test suite.
+- **pre-commit** runs `oxlint --fix` and `oxfmt --write` on staged files (auto-restaged), then runs `vitest related` over the staged files — only unit tests that import a staged file execute.
 - **pre-push** runs `vitest run --changed origin/master --project unit`, executing only the unit tests affected by files changed against `origin/master`.
 
 Hooks install automatically via the `prepare` script (`lefthook install`). To skip them for a single command, set `LEFTHOOK=0`.

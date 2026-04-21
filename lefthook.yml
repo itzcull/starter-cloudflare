@@ -8,7 +8,8 @@ pre-commit:
       glob: "*.{js,ts,tsx,jsx,mjs,cjs,json,css}"
       run: pnpm oxfmt --write {staged_files} && git add {staged_files}
     - name: vitest
-      run: pnpm vitest run --project unit
+      glob: "*.{js,ts,tsx,jsx,mjs,cjs}"
+      run: pnpm vitest related --run --project unit --passWithNoTests {staged_files}
 
 pre-push:
   jobs:
