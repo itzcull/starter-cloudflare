@@ -46,7 +46,7 @@ Business logic lives in pure TypeScript. Frameworks, databases, and external ser
 
 **Layers:**
 
-- **`src/domain/**`** — one folder per subdomain of the application (`billing/`, `auth/`, `account/`, …). Each subdomain contains its own entities, value objects, use cases, and a `ports/` folder holding the interfaces it needs from the outside world (`UserRepository.interface.ts`, `EventPublisher.interface.ts`). No imports from `src/infra/**`, no framework globals, no Node/Workers APIs. May import from `src/utils/**`.
+- **`src/domain/**`** — one folder per subdomain of the application (`billing/`, `auth/`, `account/`, …). Each subdomain contains its own entities, value objects, use cases, and a `ports/` folder holding the interfaces it needs from the outside world (`user-repository.interface.ts`, `event-publisher.interface.ts`). No imports from `src/infra/**`, no framework globals, no Node/Workers APIs. May import from `src/utils/**`.
 - **`src/infra/**`** — adapter implementations, grouped by *technology concept* and then by *specific technology*: `database/postgres/user-repository.ts`, `messaging/kafka/event-publisher.ts`. Files are named after the *entity or capability* (`user-repository.ts`, `event-publisher.ts`) — never the technology, because the folder already denotes it. Nesting the concrete tech inside the concept makes it obvious what each adapter is fulfilling and keeps the swap path (e.g. `postgres/` → `sqlite/`) local. Infra depends on domain ports; the reverse is never allowed.
 - **`src/utils/**`** — thin wrappers over third-party libraries (`lodash`, `date-fns`, …). The escape hatch that lets domain code use common utilities without defining a port per library. The utility module *is* the port; the library is its implementation, swappable at the utility boundary.
 - **`src/api/**`** — HTTP composition root (Hono). Wires concrete adapters into use cases and exposes them as routes.
@@ -67,12 +67,12 @@ src/
   domain/                       # one folder per subdomain; pure business logic + ports
     billing/
       ports/
-        InvoiceRepository.interface.ts
-      Invoice.ts
+        invoice-repository.interface.ts
+      invoice.ts
     auth/
       ports/
-        UserRepository.interface.ts
-      User.ts
+        user-repository.interface.ts
+      user.ts
     account/
       ...
   infra/                        # adapters grouped by technology concept, then specific tech
