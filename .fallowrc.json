@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/fallow-rs/fallow/main/schema.json",
+  "entry": [
+    "src/server.ts",
+    "src/webapp/router.tsx",
+    "src/**/*.{test,spec}.{ts,tsx}",
+    "test/**/*.{ts,tsx}",
+    "e2e/**/*.{ts,tsx}"
+  ],
+  "rules": {
+    "unused-dependencies": "warn"
+  }
+}
