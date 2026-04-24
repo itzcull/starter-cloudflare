@@ -2,7 +2,7 @@
 
 A starter template for full-stack apps on **Cloudflare Workers** with **Vite 8**, **React 19**, **TanStack Start**, **Drizzle**, **Vitest 4**, and **pnpm**. See [`AGENTS.md`](./AGENTS.md) for the full command reference.
 
-This README is both **descriptive** (what the repo enforces today) and **prescriptive** (the conventions you should keep if you adopt this starter). Commands and config details live in `AGENTS.md`; this file explains *why* they exist.
+This README is both **descriptive** (what the repo enforces today) and **prescriptive** (the conventions you should keep if you adopt this starter). Commands and config details live in `AGENTS.md`; this file explains _why_ they exist.
 
 ## Toolchain at a glance
 
@@ -46,11 +46,11 @@ Business logic lives in pure TypeScript. Frameworks, databases, and external ser
 
 **Layers:**
 
-- **`src/domain/**`** — one folder per subdomain of the application (`billing/`, `auth/`, `account/`, …). Each subdomain contains its own entities, value objects, use cases, and a `ports/` folder holding the interfaces it needs from the outside world (`user-repository.interface.ts`, `event-publisher.interface.ts`). No imports from `src/infra/**`, no framework globals, no Node/Workers APIs. May import from `src/utils/**`.
-- **`src/infra/**`** — adapter implementations, grouped by *technology concept* and then by *specific technology*: `database/postgres/user-repository.ts`, `messaging/kafka/event-publisher.ts`. Files are named after the *entity or capability* (`user-repository.ts`, `event-publisher.ts`) — never the technology, because the folder already denotes it. Nesting the concrete tech inside the concept makes it obvious what each adapter is fulfilling and keeps the swap path (e.g. `postgres/` → `sqlite/`) local. Infra depends on domain ports; the reverse is never allowed.
-- **`src/utils/**`** — thin wrappers over third-party libraries (`lodash`, `date-fns`, …). The escape hatch that lets domain code use common utilities without defining a port per library. The utility module *is* the port; the library is its implementation, swappable at the utility boundary.
-- **`src/api/**`** — HTTP composition root (Hono). Wires concrete adapters into use cases and exposes them as routes.
-- **`src/webapp/**`** — React + TanStack Start UI. Calls into the API; composes its own adapters where needed.
+- `src/domain/` — one folder per subdomain of the application (`billing/`, `auth/`, `account/`, …). Each subdomain contains its own entities, value objects, use cases, and a `ports/` folder holding the interfaces it needs from the outside world (`user-repository.interface.ts`, `event-publisher.interface.ts`). No imports from `src/infra/`, no framework globals, no Node/Workers APIs. May import from `src/utils/`.
+- `src/infra/` — adapter implementations, grouped by _technology concept_ and then by _specific technology_: `database/postgres/user-repository.ts`, `messaging/kafka/event-publisher.ts`. Files are named after the _entity or capability_ (`user-repository.ts`, `event-publisher.ts`) — never the technology, because the folder already denotes it. Nesting the concrete tech inside the concept makes it obvious what each adapter is fulfilling and keeps the swap path (e.g. `postgres/` → `sqlite/`) local. Infra depends on domain ports; the reverse is never allowed.
+- `src/utils/` — thin wrappers over third-party libraries (`lodash`, `date-fns`, …). The escape hatch that lets domain code use common utilities without defining a port per library. The utility module _is_ the port; the library is its implementation, swappable at the utility boundary.
+- `src/api/` — HTTP composition root (Hono). Wires concrete adapters into use cases and exposes them as routes.
+- `src/webapp/` — React + TanStack Start UI. Calls into the API; composes its own adapters where needed.
 
 **The boundary is enforced three times, on purpose:**
 
@@ -96,12 +96,12 @@ e2e/                            # Playwright specs
 
 Four test types. The filename tells you which, because it reads like the test type it is.
 
-| Type        | Filename                 | Purpose                                                                                                         | Tool                             | Coverage expectation              |
-| ----------- | ------------------------ | --------------------------------------------------------------------------------------------------------------- | -------------------------------- | --------------------------------- |
-| Unit        | `*.unit.test.ts`         | Behavioural units of domain logic                                                                               | Vitest                           | **100%** on domain                |
-| Browser     | `*.browser.test.ts`      | UI components interacting with real DOM APIs                                                                    | Vitest browser mode + Playwright | As needed per component           |
-| Integration | `*.integration.test.ts`  | Adapter implementations reaching real third-party boundaries — e.g. a Drizzle repository against a Postgres testcontainer, or an HTTP client against an MSW handler | Vitest (+ Testcontainers / MSW)  | At least one per adapter          |
-| E2E         | `*.e2e.test.ts`          | Full user flows across multiple routes — signup, login, the journeys that must always work                      | Playwright                       | Critical flows only (top priority)|
+| Type        | Filename                | Purpose                                                                                                                                                             | Tool                             | Coverage expectation               |
+| ----------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ---------------------------------- |
+| Unit        | `*.unit.test.ts`        | Behavioural units of domain logic                                                                                                                                   | Vitest                           | **100%** on domain                 |
+| Browser     | `*.browser.test.ts`     | UI components interacting with real DOM APIs                                                                                                                        | Vitest browser mode + Playwright | As needed per component            |
+| Integration | `*.integration.test.ts` | Adapter implementations reaching real third-party boundaries — e.g. a Drizzle repository against a Postgres testcontainer, or an HTTP client against an MSW handler | Vitest (+ Testcontainers / MSW)  | At least one per adapter           |
+| E2E         | `*.e2e.test.ts`         | Full user flows across multiple routes — signup, login, the journeys that must always work                                                                          | Playwright                       | Critical flows only (top priority) |
 
 Examples from the repo: `src/domain/shared/result.unit.test.ts`, `src/infra/drizzle/user-operations.integration.test.ts`, `e2e/home.e2e.test.ts`, and the oxlint plugin's `tools/oxlint-plugins/rules/domain-no-infra-imports.unit.test.ts`.
 
@@ -120,9 +120,9 @@ Rule of thumb: if a module contains only declarations, use one of these suffixes
 
 ## Quality gates
 
-Every stage has a specific job. Understanding the *why* matters as much as the commands.
+Every stage has a specific job. Understanding the _why_ matters as much as the commands.
 
-- **Pre-commit (lefthook)** — runs `oxlint --fix` and `oxfmt --write` on staged files (auto-restaged), then `vitest related --run --project unit` over the staged files. *Why*: keeps git history clean and readable (no "fix lint" commits), and ensures every commit is **independently releasable** — no commit silently breaks the behaviour of code near the change.
+- **Pre-commit (lefthook)** — runs `oxlint --fix` and `oxfmt --write` on staged files (auto-restaged), then `vitest related --run --project unit` over the staged files. _Why_: keeps git history clean and readable (no "fix lint" commits), and ensures every commit is **independently releasable** — no commit silently breaks the behaviour of code near the change.
 - **Pre-push (lefthook)** — `vitest run --changed origin/master --project unit`. Catches regressions across the whole change set before they leave the machine.
 - **`pnpm ci`** (local + CI) — `oxlint && oxfmt --check . && pnpm typecheck:layers && pnpm fallow:ci`. Read-only quality gate; no fixes, no writes. The source of truth for "is this branch green?"
 - **GitHub Actions** — runs the same gate plus the test matrix (unit, browser, integration).
