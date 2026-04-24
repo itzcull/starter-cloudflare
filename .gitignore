@@ -184,3 +184,4 @@ dist
 
 stryker-tmp/
 reports/
+.fallow/
