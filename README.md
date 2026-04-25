@@ -46,7 +46,7 @@ Business logic lives in pure TypeScript. Frameworks, databases, and external ser
 
 **Layers:**
 
-- `src/domain/` — one folder per subdomain of the application (`billing/`, `auth/`, `account/`, …). Each subdomain contains its own entities, value objects, use cases, and a `ports/` folder holding the interfaces it needs from the outside world (`user-repository.interface.ts`, `event-publisher.interface.ts`). No imports from `src/infra/`, no framework globals, no Node/Workers APIs. May import from `src/utils/`.
+- `src/domain/` — one folder per subdomain of the application (`billing/`, `auth/`, `account/`, …). Each subdomain contains its own entities, value objects, use cases, and a `ports/` folder holding the interfaces it needs from the outside world (`user-repository.types.ts`, `event-publisher.types.ts`). No imports from `src/infra/`, no framework globals, no Node/Workers APIs. May import from `src/utils/`.
 - `src/infra/` — adapter implementations, grouped by _technology concept_ and then by _specific technology_: `database/postgres/user-repository.ts`, `messaging/kafka/event-publisher.ts`. Files are named after the _entity or capability_ (`user-repository.ts`, `event-publisher.ts`) — never the technology, because the folder already denotes it. Nesting the concrete tech inside the concept makes it obvious what each adapter is fulfilling and keeps the swap path (e.g. `postgres/` → `sqlite/`) local. Infra depends on domain ports; the reverse is never allowed.
 - `src/utils/` — thin wrappers over third-party libraries (`lodash`, `date-fns`, …). The escape hatch that lets domain code use common utilities without defining a port per library. The utility module _is_ the port; the library is its implementation, swappable at the utility boundary.
 - `src/api/` — HTTP composition root (Hono). Wires concrete adapters into use cases and exposes them as routes.
@@ -67,11 +67,11 @@ src/
   domain/                       # one folder per subdomain; pure business logic + ports
     billing/
       ports/
-        invoice-repository.interface.ts
+        invoice-repository.types.ts
       invoice.ts
     auth/
       ports/
-        user-repository.interface.ts
+        user-repository.types.ts
       user.ts
     account/
       ...
@@ -107,16 +107,24 @@ Examples from the repo: `src/domain/shared/result.unit.test.ts`, `src/infra/driz
 
 Unit tests are the load-bearing layer: they run on every staged-file commit and every push, and they drive the 100% domain-coverage expectation. Integration tests verify that adapter code actually talks to the thing it claims to. E2E tests keep the most important journeys honest. Browser tests catch regressions in DOM-dependent behaviour that jsdom-style runners miss.
 
-## Schema & type modules
+## Module filename conventions
 
-Two filename suffixes mark modules that are pure declarations:
+Filename suffixes encode module intent. They act as machine-readable tags: tooling can treat them uniformly (coverage exemptions, lint overrides, test discovery) and readers can see the shape of a module before opening it.
 
-- **`*.schema.ts`** — validation schemas (Zod or similar). No branching logic.
-- **`*.types.ts`** — type and interface declarations only.
+| Pattern                 | Purpose                                                                                                                    |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `*.unit.test.ts`        | Unit tests — behavioural units of domain logic.                                                                            |
+| `*.browser.test.ts`     | Browser tests — UI components against real DOM APIs.                                                                       |
+| `*.integration.test.ts` | Integration tests — adapters against real third-party boundaries.                                                          |
+| `*.e2e.test.ts`         | End-to-end tests — full user flows across routes.                                                                          |
+| `*.schema.ts`           | Validation schemas (Zod or similar). No branching logic.                                                                   |
+| `*.types.ts`            | Type and interface declarations only — including port interfaces under `src/domain/**/ports/`. No `*.interface.ts` suffix. |
 
-Both are **exempt from unit-test coverage demands**. They don't contain behaviour to verify; unit-testing them would only restate the declarations. Giving them explicit suffixes makes the exemption self-documenting and signals module intent at a glance.
+`*.schema.ts` and `*.types.ts` are **exempt from unit-test coverage demands** — they contain no behaviour to verify; unit-testing them would only restate the declarations. The explicit suffix makes that exemption self-documenting.
 
-Rule of thumb: if a module contains only declarations, use one of these suffixes. If it contains behaviour, don't.
+See [Testing strategy](#testing-strategy) for the tool and coverage expectation behind each test suffix.
+
+Rule of thumb: if a module contains only declarations, use `*.schema.ts` or `*.types.ts`. If it contains behaviour, don't — and use the matching `*.test.ts` suffix for its tests.
 
 ## Quality gates
 
