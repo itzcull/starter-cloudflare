@@ -1,4 +1,4 @@
-# starter-cloudflare
+# starter
 
 A starter template for full-stack apps on **Cloudflare Workers** with **Vite 8**, **React 19**, **TanStack Start**, **Drizzle**, **Vitest 4**, and **pnpm**. See [`AGENTS.md`](./AGENTS.md) for the full command reference.
 
@@ -56,7 +56,7 @@ Business logic lives in pure TypeScript. Frameworks, databases, and external ser
 
 1. **Path aliases** — `@domain/*` and `@infra/*` in `tsconfig.json` make the layer of every import readable at a glance.
 2. **Layered typechecks** — `tsconfig.domain.json` compiles the domain alone; `tsconfig.infra.json` compiles domain + infra. If domain code reaches into infra, the domain typecheck fails before anything else runs. `pnpm typecheck:layers` runs both.
-3. **Custom oxlint rule** — `starter-cloudflare/domain-no-infra-imports` (in `tools/oxlint-plugins/rules/`) blocks both static and dynamic imports from `src/infra/**` inside `src/domain/**` files.
+3. **Custom oxlint rule** — `starter/domain-no-infra-imports` (in `tools/oxlint-plugins/rules/`) blocks both static and dynamic imports from `src/infra/**` inside `src/domain/**` files.
 
 Any one of the three would catch most mistakes; all three together make the violation loud and local.
 
@@ -172,7 +172,7 @@ A short checklist for applying these conventions to a greenfield project:
 1. `pnpm init`, set `"packageManager": "pnpm@10.x"`.
 2. Create `src/domain`, `src/infra`, `src/utils` on day one, even if empty. Directory shape is a commitment.
 3. Copy the `tsconfig.json` + `tsconfig.domain.json` + `tsconfig.infra.json` trio; adjust the includes/aliases.
-4. Set up `oxlint.config.ts` and `oxfmt.config.ts`. Copy `tools/oxlint-plugins/` and rename the `starter-cloudflare` namespace.
+4. Set up `oxlint.config.ts` and `oxfmt.config.ts`. Copy `tools/oxlint-plugins/` and rename the `starter` namespace.
 5. Add `lefthook.yml` with pre-commit (lint + format + `vitest related --project unit`) and pre-push (`vitest run --changed origin/master --project unit`).
 6. Add the `pnpm ci` script: lint → format check → layered typecheck → fallow audit.
 7. Adopt the four test-type filename suffixes (`.unit`, `.browser`, `.integration`, `.e2e`) before writing any tests.

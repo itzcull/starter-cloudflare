@@ -13,7 +13,7 @@ const webappFile = path.join(cwd, 'src/webapp/route.ts')
 const MESSAGE =
   'src/domain must not import from src/infra — domain is the pure core. Move the shared code to src/domain/, or invert the dependency via an interface injected at the infra boundary.'
 
-describe('starter-cloudflare/domain-no-infra-imports', () => {
+describe('starter/domain-no-infra-imports', () => {
   it('flags infra imports from domain files and ignores non-domain files', () => {
     runRuleTester(rule, {
       valid: [

@@ -1,5 +1,5 @@
 {
-  "name": "starter-cloudflare",
+  "name": "starter",
   "type": "module",
   "module": "src/server.ts",
   "scripts": {

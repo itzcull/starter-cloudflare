@@ -8,6 +8,6 @@ export default defineConfig({
   },
   jsPlugins: ['./tools/oxlint-plugins/index.js'],
   rules: {
-    'starter-cloudflare/domain-no-infra-imports': 'error',
+    'starter/domain-no-infra-imports': 'error',
   },
 })
