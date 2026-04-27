@@ -18,7 +18,8 @@
     "react",
     "recharts",
     "testcontainers",
-    "vitest-browser-react"
+    "vitest-browser-react",
+    "zod"
   ],
   "rules": {
     "unused-dependencies": "warn"

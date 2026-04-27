@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import type { createAuth as createAuthAdapter } from '@infra/better-auth/auth-adapter'
 
 const mockAuthHandler = vi.fn<(request: Request) => Promise<Response>>()
@@ -24,6 +24,10 @@ const importFreshApp = async () => {
 }
 
 describe('Hono app routing', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+  })
+
   describe('auth route delegation', () => {
     it('should route /api/auth requests to the auth handler', async () => {
       const { app } = await importFreshApp()
@@ -68,6 +72,29 @@ describe('Hono app routing', () => {
     })
   })
 
+  describe('OpenAPI document', () => {
+    it('should serve the generated OpenAPI document from /api/doc', async () => {
+      const startHandler = await import('@tanstack/react-start/server-entry')
+      const { app } = await importFreshApp()
+
+      const response = await app.request('/api/doc')
+      const document = (await response.json()) as { paths: unknown }
+
+      expect(mockCreateAuth).not.toHaveBeenCalled()
+      expect(startHandler.default.fetch).not.toHaveBeenCalled()
+      expect(response.status).toBe(200)
+      expect(response.headers.get('content-type')).toContain('application/json')
+      expect(document).toMatchObject({
+        openapi: '3.0.0',
+        info: {
+          title: 'Starter HTTP API',
+          version: '0.1.0',
+        },
+      })
+      expect(document.paths).toEqual({})
+    })
+  })
+
   describe('TanStack Start fallthrough', () => {
     it('should route non-auth requests to TanStack Start handler', async () => {
       const startHandler = await import('@tanstack/react-start/server-entry')
@@ -92,6 +119,20 @@ describe('Hono app routing', () => {
 
       expect(startHandler.default.fetch).toHaveBeenCalled()
       expect(await response.text()).toBe('about page')
+    })
+
+    it('should route unknown api paths to TanStack Start handler', async () => {
+      const startHandler = await import('@tanstack/react-start/server-entry')
+      const { app } = await importFreshApp()
+      const startResponse = new Response('web fallback', { status: 200 })
+      vi.mocked(startHandler.default.fetch).mockResolvedValueOnce(startResponse)
+
+      const response = await app.request('/api/not-registered')
+
+      expect(mockCreateAuth).not.toHaveBeenCalled()
+      expect(startHandler.default.fetch).toHaveBeenCalledOnce()
+      expect(response.status).toBe(200)
+      expect(await response.text()).toBe('web fallback')
     })
   })
 })

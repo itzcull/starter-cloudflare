@@ -1,6 +1,7 @@
 import { Hono } from 'hono'
 import handler from '@tanstack/react-start/server-entry'
 import { createAuth } from '@infra/better-auth/auth-adapter'
+import { httpApi } from './http-api'
 
 type AppBindings = {
   Bindings: Cloudflare.Env
@@ -16,6 +17,8 @@ app.all('/api/auth/*', async (c) => {
   })
   return auth.handler(c.req.raw)
 })
+
+app.route('/api', httpApi)
 
 app.all('*', async (c) => {
   return handler.fetch(c.req.raw)
