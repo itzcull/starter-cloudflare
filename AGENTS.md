@@ -19,6 +19,12 @@ This project uses **Vite 8**, **Vitest 4**, **oxlint**, **oxfmt**, and **pnpm** 
 - `pnpm test:e2e` - Run Playwright end-to-end tests
 - `pnpm vitest run --project <name>` - Run a specific test project in CI mode (no watch)
 
+### Integration Test Boundaries
+
+- Use Testcontainers for validating database calls against real database infrastructure.
+- Use Mock Service Worker (`msw`) for validating third-party HTTP calls, whether the application calls `fetch` directly or uses an SDK that communicates with its downstream service over HTTP.
+- Add per-test HTTP handlers with the shared `server` from `test/msw/server.ts`; unhandled HTTP requests fail the integration test by default.
+
 ### Code Quality
 
 - `pnpm lint` - Lint and auto-fix with oxlint (includes local `starter/*` JS plugin rules in `tools/oxlint-plugins/`)

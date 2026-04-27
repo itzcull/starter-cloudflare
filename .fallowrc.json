@@ -7,6 +7,18 @@
     "test/**/*.{ts,tsx}",
     "e2e/**/*.{ts,tsx}"
   ],
+  "ignoreDependencies": [
+    "@chakra-ui/charts",
+    "@edge-runtime/vm",
+    "@emotion/react",
+    "@stryker-mutator/typescript-checker",
+    "@stryker-mutator/vitest-runner",
+    "jiti",
+    "react",
+    "recharts",
+    "testcontainers",
+    "vitest-browser-react"
+  ],
   "rules": {
     "unused-dependencies": "warn"
   }
