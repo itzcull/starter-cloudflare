@@ -1,14 +1,13 @@
-import { Hono } from 'hono'
-import handler from '@tanstack/react-start/server-entry'
+import { OpenAPIHono } from '@hono/zod-openapi'
 import { createAuth } from '@infra/better-auth/auth-adapter'
 
 type AppBindings = {
   Bindings: Cloudflare.Env
 }
 
-const app = new Hono<AppBindings>()
+const httpApi = new OpenAPIHono<AppBindings>()
 
-app.all('/api/auth/*', async (c) => {
+httpApi.all('/auth/*', async (c) => {
   const auth = createAuth({
     connectionString: c.env.HYPERDRIVE.connectionString,
     baseUrl: new URL(c.req.url).origin,
@@ -17,8 +16,12 @@ app.all('/api/auth/*', async (c) => {
   return auth.handler(c.req.raw)
 })
 
-app.all('*', async (c) => {
-  return handler.fetch(c.req.raw)
+httpApi.doc('/doc', {
+  openapi: '3.0.0',
+  info: {
+    title: 'Starter HTTP API',
+    version: '0.1.0',
+  },
 })
 
-export { app }
+export { httpApi }
