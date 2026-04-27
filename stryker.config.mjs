@@ -1,24 +1,17 @@
-/** @type {import('@stryker-mutator/api/core').PartialStrykerOptions} */
 export default {
   packageManager: 'pnpm',
+  plugins: ['@stryker-mutator/vitest-runner'],
   testRunner: 'vitest',
   vitest: {
-    configFile: 'vitest.config.ts',
+    configFile: 'vitest.mutation.config.ts',
   },
-  checkers: ['typescript'],
   tsconfigFile: 'tsconfig.json',
-  mutate: [
-    'src/**/*.ts',
-    'src/**/*.tsx',
-    '!src/**/*.test.ts',
-    '!src/**/*.test.tsx',
-    '!src/**/*.d.ts',
-  ],
+  mutate: ['src/domain/**/*.ts', 'src/api/**/*.ts', '!src/**/*.unit.test.ts'],
   reporters: ['html', 'clear-text', 'progress'],
   coverageAnalysis: 'perTest',
   thresholds: {
     high: 80,
     low: 60,
-    break: null,
+    break: 80,
   },
 }

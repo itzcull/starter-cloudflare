@@ -30,12 +30,13 @@ pnpm test          # watch mode, all projects
 pnpm test:unit     # unit
 pnpm test:browser  # browser (Vitest + Playwright)
 pnpm test:e2e      # Playwright e2e
+pnpm test:mutate   # Stryker mutation tests
 ```
 
 Full quality gate (lint, format, typecheck layers, fallow audit):
 
 ```sh
-pnpm ci
+pnpm run ci
 ```
 
 See `AGENTS.md` for the complete command list and configuration details.
@@ -107,6 +108,22 @@ Examples from the repo: `src/domain/shared/result.unit.test.ts`, `src/infra/driz
 
 Unit tests are the load-bearing layer: they run on every staged-file commit and every push, and they drive the 100% domain-coverage expectation. Integration tests verify that adapter code actually talks to the thing it claims to. E2E tests keep the most important journeys honest. Browser tests catch regressions in DOM-dependent behaviour that jsdom-style runners miss.
 
+## Mutation Testing
+
+Mutation testing is the test-quality gate. Line coverage can show that tests executed code; Stryker checks whether those tests would fail if the code's behaviour changed.
+
+Run it with:
+
+```sh
+pnpm test:mutate
+```
+
+Configuration lives in `stryker.config.mjs`. Stryker uses `vitest.mutation.config.ts`, not the main `vitest.config.ts`, so mutation testing runs only fast Node-based unit tests. This is deliberate: Stryker's Vitest runner does not support Vitest Browser Mode, and integration/e2e suites are too slow and environment-heavy for the mutation loop.
+
+Current mutation scope is `src/domain/**` and `src/api/**`, excluding tests, declarations, and declaration-only `*.types.ts` / `*.schema.ts` modules. Expand the `mutate` globs only when the new code has fast behavioural unit tests; do not add browser, integration, generated, or adapter-only code to the default mutation target set.
+
+The mutation score must stay at or above **80%**. `thresholds.break` enforces this in Stryker, so `pnpm test:mutate` and the mutation CI workflow fail below that floor. HTML reports are written under `reports/` for local investigation.
+
 ## Module filename conventions
 
 Filename suffixes encode module intent. They act as machine-readable tags: tooling can treat them uniformly (coverage exemptions, lint overrides, test discovery) and readers can see the shape of a module before opening it.
@@ -132,8 +149,9 @@ Every stage has a specific job. Understanding the _why_ matters as much as the c
 
 - **Pre-commit (lefthook)** — runs `oxlint --fix` and `oxfmt --write` on staged files (auto-restaged), then `vitest related --run --project unit` over the staged files. _Why_: keeps git history clean and readable (no "fix lint" commits), and ensures every commit is **independently releasable** — no commit silently breaks the behaviour of code near the change.
 - **Pre-push (lefthook)** — `vitest run --changed origin/master --project unit`. Catches regressions across the whole change set before they leave the machine.
-- **`pnpm ci`** (local + CI) — `oxlint && oxfmt --check . && pnpm typecheck:layers && pnpm fallow:ci`. Read-only quality gate; no fixes, no writes. The source of truth for "is this branch green?"
+- **`pnpm run ci`** (local + CI) — `oxlint && oxfmt --check . && pnpm typecheck:layers && pnpm fallow:ci`. Read-only quality gate; no fixes, no writes. The source of truth for "is this branch green?"
 - **GitHub Actions** — runs the same gate plus the test matrix (unit, browser, integration).
+- **Mutation Tests workflow** — `pnpm test:mutate` on pull requests that touch `src/domain/**`, `src/api/**`, unit tests, or mutation config, with manual dispatch available. It fails below an 80% mutation score.
 
 To skip hooks for a single command (e.g. an intentional WIP commit), set `LEFTHOOK=0`.
 
@@ -163,7 +181,7 @@ pnpm fallow health        # complexity + maintainability
 pnpm fallow fix --dry-run # preview auto-fixes for unused exports/deps
 ```
 
-`pnpm ci` runs `pnpm fallow:ci` (`fallow audit`) as a quality gate — it scopes analysis to files changed against the base branch and returns a pass/warn/fail verdict. Configuration lives in `.fallowrc.json`. For the full feature set, see the [fallow docs](https://docs.fallow.tools).
+`pnpm run ci` runs `pnpm fallow:ci` (`fallow audit`) as a quality gate — it scopes analysis to files changed against the base branch and returns a pass/warn/fail verdict. Configuration lives in `.fallowrc.json`. For the full feature set, see the [fallow docs](https://docs.fallow.tools).
 
 ## Reproducing this setup in your own repo
 
@@ -175,13 +193,15 @@ A short checklist for applying these conventions to a greenfield project:
 4. Set up `oxlint.config.ts` and `oxfmt.config.ts`. Copy `tools/oxlint-plugins/` and rename the `starter` namespace.
 5. Add `lefthook.yml` with pre-commit (lint + format + `vitest related --project unit`) and pre-push (`vitest run --changed origin/master --project unit`).
 6. Add the `pnpm ci` script: lint → format check → layered typecheck → fallow audit.
-7. Adopt the four test-type filename suffixes (`.unit`, `.browser`, `.integration`, `.e2e`) before writing any tests.
-8. Adopt `*.schema.ts` / `*.types.ts` before introducing any declaration-only module.
-9. Put your HTTP server behind Hono so the runtime stays swappable.
-10. Wire fallow with `.fallowrc.json` to catch dead code and duplication as the project grows.
+7. Add Stryker (`@stryker-mutator/core`, `@stryker-mutator/vitest-runner`), `stryker.config.mjs`, `vitest.mutation.config.ts`, and the `pnpm test:mutate` script with an 80% `thresholds.break` floor.
+8. Adopt the four test-type filename suffixes (`.unit`, `.browser`, `.integration`, `.e2e`) before writing any tests.
+9. Adopt `*.schema.ts` / `*.types.ts` before introducing any declaration-only module.
+10. Put your HTTP server behind Hono so the runtime stays swappable.
+11. Wire fallow with `.fallowrc.json` to catch dead code and duplication as the project grows.
 
 ## Reference
 
 - [`AGENTS.md`](./AGENTS.md) — commands, imports, hook commands, and agent workflow notes.
 - `.fallowrc.json` — fallow configuration.
+- `stryker.config.mjs` and `vitest.mutation.config.ts` — mutation testing configuration.
 - `tools/oxlint-plugins/README.md` — the custom lint plugin, including `domain-no-infra-imports`.

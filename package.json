@@ -50,7 +50,6 @@
     "@edge-runtime/vm": "^5.0.0",
     "@playwright/test": "^1.51.0",
     "@stryker-mutator/core": "^9.5.1",
-    "@stryker-mutator/typescript-checker": "^9.5.1",
     "@stryker-mutator/vitest-runner": "^9.5.1",
     "@testcontainers/postgresql": "^11.11.0",
     "@testing-library/jest-dom": "^6.9.1",

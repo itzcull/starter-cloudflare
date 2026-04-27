@@ -1,6 +1,6 @@
 # Development Toolchain
 
-This project uses **Vite 8**, **Vitest 4**, **oxlint**, **oxfmt**, and **pnpm** as its development toolchain. Each tool is installed directly as a devDependency.
+This project uses **Vite 8**, **Vitest 4**, **Stryker**, **oxlint**, **oxfmt**, and **pnpm** as its development toolchain. Each tool is installed directly as a devDependency.
 
 ## Commands
 
@@ -17,6 +17,7 @@ This project uses **Vite 8**, **Vitest 4**, **oxlint**, **oxfmt**, and **pnpm** 
 - `pnpm test:browser` - Run browser tests only
 - `pnpm test:integration` - Run integration tests (requires Docker)
 - `pnpm test:e2e` - Run Playwright end-to-end tests
+- `pnpm test:mutate` - Run Stryker mutation tests against unit-tested source
 - `pnpm vitest run --project <name>` - Run a specific test project in CI mode (no watch)
 
 ### Integration Test Boundaries
@@ -29,7 +30,7 @@ This project uses **Vite 8**, **Vitest 4**, **oxlint**, **oxfmt**, and **pnpm** 
 
 - `pnpm lint` - Lint and auto-fix with oxlint (includes local `starter/*` JS plugin rules in `tools/oxlint-plugins/`)
 - `pnpm format` - Format code with oxfmt
-- `pnpm ci` - Full CI check: lint, format, and typecheck
+- `pnpm run ci` - Full CI check: lint, format, and typecheck
 
 ### Dependencies
 
@@ -41,6 +42,8 @@ This project uses **Vite 8**, **Vitest 4**, **oxlint**, **oxfmt**, and **pnpm** 
 
 - **Vite config**: `vite.config.ts` (plugins, resolve)
 - **Vitest config**: `vitest.config.ts` (test projects: unit, browser, integration)
+- **Mutation Vitest config**: `vitest.mutation.config.ts` (unit tests only for Stryker)
+- **Stryker config**: `stryker.config.mjs` (mutation scope, reporters, 80% break threshold)
 - **oxlint config**: `oxlint.config.ts` (type-aware linting, ignore patterns)
 - **oxfmt config**: `oxfmt.config.ts` (formatting: no semi, single quotes)
 - **TypeScript**: `tsconfig.json` and layer-specific configs
@@ -60,9 +63,12 @@ Git hooks are managed by [lefthook](https://lefthook.dev), configured in `leftho
 - **pre-commit** runs `oxlint --fix` and `oxfmt --write` on staged files (auto-restaged), then runs `vitest related` over the staged files — only unit tests that import a staged file execute.
 - **pre-push** runs `vitest run --changed origin/master --project unit`, executing only the unit tests affected by files changed against `origin/master`.
 
+Mutation testing is intentionally not a git hook because it is slower than the commit/push feedback loop. Run `pnpm test:mutate` before merging changes to `src/domain/**`, `src/api/**`, or unit-test behaviour; CI enforces the same command for those paths.
+
 Hooks install automatically via the `prepare` script (`lefthook install`). To skip them for a single command, set `LEFTHOOK=0`.
 
 ## Review Checklist for Agents
 
 - [ ] Run `pnpm install` after pulling remote changes and before getting started.
-- [ ] Run `pnpm ci` and `pnpm test` to validate changes.
+- [ ] Run `pnpm run ci` and `pnpm test` to validate changes.
+- [ ] Run `pnpm test:mutate` when changing mutation-scoped logic or unit tests.

@@ -5,13 +5,14 @@
     "src/webapp/router.tsx",
     "src/**/*.{test,spec}.{ts,tsx}",
     "test/**/*.{ts,tsx}",
-    "e2e/**/*.{ts,tsx}"
+    "e2e/**/*.{ts,tsx}",
+    "stryker.config.mjs",
+    "vitest.mutation.config.ts"
   ],
   "ignoreDependencies": [
     "@chakra-ui/charts",
     "@edge-runtime/vm",
     "@emotion/react",
-    "@stryker-mutator/typescript-checker",
     "@stryker-mutator/vitest-runner",
     "jiti",
     "react",

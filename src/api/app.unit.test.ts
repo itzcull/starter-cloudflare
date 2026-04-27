@@ -1,11 +1,15 @@
 import { describe, expect, it, vi } from 'vitest'
+import type { createAuth as createAuthAdapter } from '@infra/better-auth/auth-adapter'
 
 const mockAuthHandler = vi.fn<(request: Request) => Promise<Response>>()
+const mockCreateAuth = vi.fn<
+  (...options: Parameters<typeof createAuthAdapter>) => { handler: typeof mockAuthHandler }
+>(() => ({
+  handler: mockAuthHandler,
+}))
 
 vi.mock('@infra/better-auth/auth-adapter', () => ({
-  createAuth: () => ({
-    handler: mockAuthHandler,
-  }),
+  createAuth: mockCreateAuth,
 }))
 
 vi.mock('@tanstack/react-start/server-entry', () => ({
@@ -14,10 +18,15 @@ vi.mock('@tanstack/react-start/server-entry', () => ({
   },
 }))
 
+const importFreshApp = async () => {
+  vi.resetModules()
+  return import('./app')
+}
+
 describe('Hono app routing', () => {
   describe('auth route delegation', () => {
     it('should route /api/auth requests to the auth handler', async () => {
-      const { app } = await import('./app')
+      const { app } = await importFreshApp()
       const authResponse = new Response('auth response', { status: 200 })
       mockAuthHandler.mockResolvedValueOnce(authResponse)
 
@@ -30,13 +39,18 @@ describe('Hono app routing', () => {
         },
       )
 
+      expect(mockCreateAuth).toHaveBeenCalledWith({
+        connectionString: 'postgres://test',
+        baseUrl: 'http://localhost',
+        secret: 'test-secret',
+      })
       expect(mockAuthHandler).toHaveBeenCalledOnce()
       expect(response.status).toBe(200)
       expect(await response.text()).toBe('auth response')
     })
 
     it('should route /api/auth nested paths to the auth handler', async () => {
-      const { app } = await import('./app')
+      const { app } = await importFreshApp()
       const authResponse = new Response('auth callback', { status: 200 })
       mockAuthHandler.mockResolvedValueOnce(authResponse)
 
@@ -57,7 +71,7 @@ describe('Hono app routing', () => {
   describe('TanStack Start fallthrough', () => {
     it('should route non-auth requests to TanStack Start handler', async () => {
       const startHandler = await import('@tanstack/react-start/server-entry')
-      const { app } = await import('./app')
+      const { app } = await importFreshApp()
       const startResponse = new Response('tanstack page', { status: 200 })
       vi.mocked(startHandler.default.fetch).mockResolvedValueOnce(startResponse)
 
@@ -70,7 +84,7 @@ describe('Hono app routing', () => {
 
     it('should route non-api paths to TanStack Start handler', async () => {
       const startHandler = await import('@tanstack/react-start/server-entry')
-      const { app } = await import('./app')
+      const { app } = await importFreshApp()
       const startResponse = new Response('about page', { status: 200 })
       vi.mocked(startHandler.default.fetch).mockResolvedValueOnce(startResponse)
 
