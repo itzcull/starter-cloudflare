@@ -1,7 +1,21 @@
-import { app } from './api/app'
+import { Hono } from 'hono'
+import handler from '@tanstack/react-start/server-entry'
+import { httpApi } from './api/http-api'
+
+type AppBindings = {
+  Bindings: Cloudflare.Env
+}
+
+const server = new Hono<AppBindings>()
+
+server.route('/api', httpApi)
+
+server.all('*', async (c) => {
+  return handler.fetch(c.req.raw)
+})
 
 export default {
-  fetch: app.fetch,
+  fetch: server.fetch,
   queue(batch: MessageBatch<{ message: string }>) {
     for (const message of batch.messages) {
       console.log(message)
@@ -13,3 +27,5 @@ export default {
     )
   },
 } satisfies ExportedHandler<Cloudflare.Env, { message: string }>
+
+export { server as app }

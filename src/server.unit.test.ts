@@ -20,10 +20,10 @@ vi.mock('@tanstack/react-start/server-entry', () => ({
 
 const importFreshApp = async () => {
   vi.resetModules()
-  return import('./app')
+  return import('./server')
 }
 
-describe('Hono app routing', () => {
+describe('server routing', () => {
   beforeEach(() => {
     vi.clearAllMocks()
   })
