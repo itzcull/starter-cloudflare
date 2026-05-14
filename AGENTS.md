@@ -15,7 +15,7 @@ This project uses **Vite 8**, **Vitest 4**, **Stryker**, **oxlint**, **oxfmt**, 
 - `pnpm test` - Run all tests (Vitest, watch mode)
 - `pnpm test:unit` - Run unit tests only
 - `pnpm test:browser` - Run browser tests only
-- `pnpm test:integration` - Run integration tests (requires Docker)
+- `pnpm test:integration` - Run integration tests (runs against the nested docker daemon inside the dev container; do not start docker on the host)
 - `pnpm test:e2e` - Run Playwright end-to-end tests
 - `pnpm test:mutate` - Run Stryker mutation tests against unit-tested source
 - `pnpm vitest run --project <name>` - Run a specific test project in CI mode (no watch)
