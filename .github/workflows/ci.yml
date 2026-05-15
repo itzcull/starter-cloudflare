@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: devcontainers/ci@v0.4
+      - uses: devcontainers/ci@v0.3
         with:
           imageName: ghcr.io/${{ github.repository }}/devcontainer
           cacheFrom: ghcr.io/${{ github.repository }}/devcontainer
@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: devcontainers/ci@v0.4
+      - uses: devcontainers/ci@v0.3
         with:
           imageName: ghcr.io/${{ github.repository }}/devcontainer
           cacheFrom: ghcr.io/${{ github.repository }}/devcontainer
@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: devcontainers/ci@v0.4
+      - uses: devcontainers/ci@v0.3
         with:
           imageName: ghcr.io/${{ github.repository }}/devcontainer
           cacheFrom: ghcr.io/${{ github.repository }}/devcontainer
@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: devcontainers/ci@v0.4
+      - uses: devcontainers/ci@v0.3
         with:
           imageName: ghcr.io/${{ github.repository }}/devcontainer
           cacheFrom: ghcr.io/${{ github.repository }}/devcontainer
@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: devcontainers/ci@v0.4
+      - uses: devcontainers/ci@v0.3
         with:
           imageName: ghcr.io/${{ github.repository }}/devcontainer
           cacheFrom: ghcr.io/${{ github.repository }}/devcontainer
@@ -69,7 +69,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: devcontainers/ci@v0.4
+      - uses: devcontainers/ci@v0.3
         with:
           imageName: ghcr.io/${{ github.repository }}/devcontainer
           cacheFrom: ghcr.io/${{ github.repository }}/devcontainer
