@@ -13,65 +13,101 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: devcontainers/ci@v0.3
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
         with:
-          imageName: ghcr.io/${{ github.repository }}/devcontainer
-          cacheFrom: ghcr.io/${{ github.repository }}/devcontainer
-          push: never
-          runCmd: pnpm oxlint && pnpm oxfmt --check .
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Lint
+        run: pnpm oxlint
+      - name: Format check
+        run: pnpm oxfmt --check .
 
   test-unit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: devcontainers/ci@v0.3
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
         with:
-          imageName: ghcr.io/${{ github.repository }}/devcontainer
-          cacheFrom: ghcr.io/${{ github.repository }}/devcontainer
-          push: never
-          runCmd: pnpm vitest run --project unit --passWithNoTests
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Run unit tests
+        run: pnpm vitest run --project unit --passWithNoTests
 
   test-browser:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: devcontainers/ci@v0.3
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
         with:
-          imageName: ghcr.io/${{ github.repository }}/devcontainer
-          cacheFrom: ghcr.io/${{ github.repository }}/devcontainer
-          push: never
-          runCmd: pnpm vitest run --project browser --passWithNoTests
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+      - name: Run browser tests
+        run: pnpm vitest run --project browser --passWithNoTests
 
   test-integration:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: devcontainers/ci@v0.3
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
         with:
-          imageName: ghcr.io/${{ github.repository }}/devcontainer
-          cacheFrom: ghcr.io/${{ github.repository }}/devcontainer
-          push: never
-          runCmd: pnpm vitest run --project integration
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Run integration tests
+        run: pnpm vitest run --project integration
+        env:
+          TESTCONTAINERS_RYUK_DISABLED: 'true'
 
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: devcontainers/ci@v0.3
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
         with:
-          imageName: ghcr.io/${{ github.repository }}/devcontainer
-          cacheFrom: ghcr.io/${{ github.repository }}/devcontainer
-          push: never
-          runCmd: pnpm vite build
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Build
+        run: pnpm vite build
 
   test-e2e:
     needs: [build]
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: test
+          POSTGRES_PASSWORD: test
+          POSTGRES_DB: test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U test"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
     steps:
       - uses: actions/checkout@v6
-      - uses: devcontainers/ci@v0.3
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
         with:
-          imageName: ghcr.io/${{ github.repository }}/devcontainer
-          cacheFrom: ghcr.io/${{ github.repository }}/devcontainer
-          push: never
-          runCmd: npx playwright test
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+      - name: Run e2e tests
+        run: npx playwright test
+        env:
+          WRANGLER_HYPERDRIVE_LOCAL_CONNECTION_STRING_HYPERDRIVE: postgres://test:test@localhost:5432/test
